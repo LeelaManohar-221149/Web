@@ -1,29 +1,50 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>login in</title>
-        <style>
-            .data{
-                margin-left:500px;
-                margin-top:200px;
-                margin-right:500px;
-                align-content: center;
-                    
-            }
-        </style>
-    </head>
-    <body bgcolor="lightgreen">
-        <form  class="data" action="lab2.html" target="_self" method="get">
+<head>
+    <title>Donation Page</title>
+     <style>
+        body {
+           font-family: Arial;
+            background-color:teal;
+          
+        .box {
+            width: 800px;
+            margin:100px ;
+            padding:100px;
+            background-color:lightsteelblue;
+            border-radius:60px;
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top:10px;
+        }
+        button {
+            width:200px;
+            padding:10px;
+            background-color:aqua;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>LOGIN IN </h2>
+         <form  class="data" action="lab2.html" target="_self" method="get">
             Username:<br><input type="username" name="username" id="username"><br>
             Password:<br><input type="password" name="password" id="password"><br><br>
-            <input type="submit" name="submit">&nbsp;&nbsp;
-            <input type="reset"  name="rest">
-
-
-            
-
+            <br>
+            <button onclick="loginpage()">Login IN</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onclick="signup()">SIGN UP</button>
+            <br>
+            <br>
+            <br>
+            <b>Note:</b>If u Forgot Password ,Please Sign Up again !..
         </form>
+    <script src="donation.js"></script
+</div>
+ 
 
-    </body>
-    
-</html>
+</body>

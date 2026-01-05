@@ -1,36 +1,70 @@
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>login in</title>
-        <style>
-            .data{
-                margin-left:500px;
-                margin-top:200px;
-                margin-right:500px;
-                align-content: center;
-                    
-            }
-        </style>
-    </head>
-    <body bgcolor="lightgreen">
+<head>
+    <title>Donation Page</title>
+     <style>
+        body {
+           font-family: Arial;
+            background-color:seagreen;
+          
+        .box {
+            width: 800px;
+            margin:100px ;
+            padding:100px;
+            background-color:darkcyan;
+            border-radius:60px;
+        }
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top:10px;
+        }
+        button {
+            width:200px;
+            padding:10px;
+            background-color:aqua;
+        }
+        .s{
+            width:103%;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="box">
+    <h2>SIGN UP </h2>
         <form  class="data" action="lab2.html" target="_self" method="get">
-            Username:<br><input type="username" name="username" id="username"><br><br>
-            New Password:<br><input type="password" name="password" id="password"><br><br>
-            Confirm Password:<br><input type="password" name="password" >
-            Gender:<br>
-            Male :<input type="radio" name="male" id="male">&nbsp;&nbsp;
-            Female  :<input type="radio" name="female" id="female">
+            Username:
+            <input type="username" name="username" id="username">
+            New Password:
+            <input type="password" name="password" id="password">
+            Confirm Password:
+            <input type="password" name="password" >
+            Gender:
+            <select class="s" name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">female</option>
+            </select>
             <br><br>
-            Email:<input type="mail" name="mail" id="mail"><br><br>
-            Phone number:<input type="phone" name="phone"><br><br>
-            <input type="submit" name="submit">&nbsp;&nbsp;
-            <input type="reset"  name="rest">
+            Email:
+            <input type="email" name="mail" id="mail"><br><br>
+            Phone number:
+            <input type="phone" name="phone">
+            <br><br>
+            <button >SIGN IN </button>  &nbsp; &nbsp; &nbsp; &nbsp;
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+             <button >Reset</button>
 
 
             
 
         </form>
+        
+    <script src="donation.js"></script>
+</div>
+ 
 
-    </body>
-    
-</html>
+</body>
