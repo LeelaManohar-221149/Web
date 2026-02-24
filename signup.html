@@ -1,73 +1,101 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Donation Page</title>
-     <style>
+    <title>Sign Up</title>
+    <style>
         body {
-           font-family: Arial;
-            background-color:seagreen;
-          
+            font-family: Arial, sans-serif;
+            background:whitesmoke;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:80vh;
+            margin: 0;
+        }
+
         .box {
-            width: 600px;
-            margin:100px ;
-            padding:80px;
-            background-color:aqua;
-            border-radius:60px;
+            
+            background:royalblue;
+            padding: 30px;
+            border-radius:50px;
+            text-align:left;
+            width:480px;
+            color:black;
+            margin-bottom:30px;
+            margin-top:500px;
+            font-style: bold;
         }
-        input{
-            width: 100%;
-            padding: 10px;
-            margin-top:10px;
+
+        h2 {
+            margin-bottom: 20px;
+            color:black;
+            text-align:center;
         }
+
+        input, select {
+            width:100%;
+            padding:10px;
+            margin:8px 0;
+            border-radius:10px;
+            border: none;
+        }
+
         button {
-            width:200px;
+            width:50%;
             padding:10px;
-            background-color:aqua;
+            border-radius:20px;
+            border:none;
+            margin-top:10px;
+            cursor: pointer;
         }
-        .s{
-            width:103%;
-            padding:10px;
+
+        .sign{
+            background-color:gold;
+            font-weight: bold;
         }
+
+       
+
+       
+
     </style>
 </head>
+
 <body>
-    <div class="box">
-        <h2>SIGN UP </h2>
-            <form  class="data" action="signup.php" target="_self" method="post" enctype="multipart/form-data">
-                    Username:
-                    <input type="username" name="username" id="username">
-                    New Password:
-                    <input type="password" name="password" id="password">
-                    Confirm Password:
-                    <input type="password" name="password" >
-                    Gender:
-                    <select class="s" name="gender" id="gender">
-                        <option value="male">Male</option>
-                        <option value="female">female</option>
-                    </select>
-                    <br><br>
-                    Email:
-                    <input type="email" name="mail" id="mail"><br><br>
-                    Phone number:
-                    <input type="phone" name="phone">
-                    <br><br>
 
-                    <input type="file" name="upload proof" required>
-                    <a  target="_blank" align="center"><button >upload file </button></a>
-                    <br><br>
-                     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                    <button >SIGN IN </button>  &nbsp; &nbsp; &nbsp; &nbsp;
-                    
-                    <button >Reset</button>
+<div class="box">
+    <h2>First Signup avvali-Webiste Use cheyali antey</h2>
 
+    <form action="signup.php" method="post" enctype="multipart/form-data">
+        Name:<br>
+        <input type="text" name="username" placeholder="Username" required><br>
+        Password:<br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        Confirm Password:<br>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+        Gender:<br>
+        <select name="gender" required><br>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        Email:<br>
+        <input type="email" name="mail" placeholder="Email" required><br>
+        Phone NUmber:<br>
+        <input type="tel" name="phone" placeholder="Phone Number" required><br>
+        Rationcard Photo:<br>
+        <input type="file" name="upload_proof" required>
+        <br>
+        <p align="center">
+        <button type="submit" class="sign">Sign Up</button>
 
-                    
+        <button type="reset" class="sign">Reset</button>
+        </p>
+    </form>
 
-            </form>
-            <script src="donation.js"></script>
-        </div>
-        
+ 
 
-    </body>
+</div>
+
+</body>
 </html>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+?>
+
+<?php
+
+require_once 'google-config.php';
+?>
+
 <! DOCTYPE html>
 <html>
     <head>
@@ -58,7 +67,20 @@
         </p>
                 <p align="right">
                     <a href="donation.html" target="_blank" ><button class="v" >Donated </button></a>&nbsp;&nbsp;
-                    <a href="login.html" target="_self"><button class="v"  >Login In</button ></a>&nbsp;&nbsp;
+                    <p align="right">
+                    <?php if (!isset($_SESSION['user_email'])): ?>
+                        <a href="login.php">
+                            <button class="v">Login</button>
+                        </a>
+                        <?php else: ?>
+                                Welcome <?php echo $_SESSION['user_name']; ?> |
+                                <a href="logout.php">
+                                    <button class="v">Logout</button>
+                                </a>
+                            <?php endif; ?>
+                            </p>
+
+
                     <a href="signup.html" target="_self" ><button class="v">Sign Up</button ></a>&nbsp;&nbsp;
                 </p>
 </header>

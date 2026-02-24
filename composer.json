@@ -1,0 +1,17 @@
+{
+    "name": "user/web",
+    "autoload": {
+        "psr-4": {
+            "User\\Web\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LeelaManohar-221149",
+            "email": "n221149@rguktn.ac.in"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.19"
+    }
+}

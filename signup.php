@@ -1,27 +1,26 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+session_start();
+require_once 'config/database.php';
 
-if (isset($_POST['submit'])) {
+$name = $_POST['name'];
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-    $fileName = $_FILES['proof']['name'];
-    $tmpName  = $_FILES['proof']['tmp_name'];
-
-    if (!is_dir("uploads")) {
-        mkdir("uploads");
-    }
-
-    if (move_uploaded_file($tmpName, "uploads" . $fileName)) {
-
-        echo "<h3 style='color:green'>File uploaded successfully!</h3>";
-
-        echo "<br>";
-        echo "<a href='download.php?file=" . urlencode($fileName) . "'>";
-        echo "<button>Download Uploaded File</button>";
-        echo "</a>";
-
-    } else {
-        echo "<p style='color:red'>Upload failed</p>";
-    }
+if (empty($name) || empty($email) || empty($password)) {
+    die("All fields are required!");
 }
+
+$existingUser = $collection->findOne(['email' => $email]);
+
+if ($existingUser) {
+    die("Email already exists!");
+}
+
+$collection->insertOne([
+    'name' => $name,
+    'email' => $email,
+    'password' => password_hash($password, PASSWORD_DEFAULT)
+]);
+
+echo "Signup successful!";
 ?>
