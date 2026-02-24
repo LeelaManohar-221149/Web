@@ -13,7 +13,7 @@ require_once 'google-config.php';
         <title>NGO Portal</title>
         <style>
             .a{background-color: aqua;
-                padding-left:50px ;
+                padding-left:50px;
                 height: 20px;
             }
             .containers{

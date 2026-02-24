@@ -1,1 +1,6 @@
-/vendor/
+git add .
+vendor/
+uploads/
+node_modules/
+.env
+*.log
