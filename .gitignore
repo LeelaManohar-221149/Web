@@ -2,5 +2,5 @@ git add .
 vendor/
 uploads/
 node_modules/
-.env
-*.log
+C:\xampp\htdocs\Web\.env
+*.loggoogle-config.php 
