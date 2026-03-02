@@ -1,4 +1,7 @@
 <?php
+require __DIR__ . '/config/db.php';
+?>
+<?php
 session_start();
 require_once 'google-config.php';
 ?>
