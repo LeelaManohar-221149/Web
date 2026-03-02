@@ -229,5 +229,78 @@ Purpose:It adds all the modified and untracked files in the current folder .
 
 Example:git add .
 
-Output screenshot :![git config list output](screenshots/git-add-dot.png)
+Output screenshot :![git config list output](screenshots/git-add-p.png)
 
+19........................................................
+
+commands: git add -p
+
+syntax :git add -p
+
+Purpose:It Allows interactive staging of changes by selecting specific portion  of file.
+
+Example:git add -p
+
+Output screenshot :![git config list output](screenshots/git-add-p.png)
+
+20........................................................
+
+commands: git restore 
+
+syntax :git restore <..any file name which is modified ...>
+
+Purpose:This command restore the file in the current directory to its last committed state .
+
+Example:git restore file1.txt
+
+Output screenshot :![git config list output](screenshots/git-restore.png)
+
+21.......................................................
+
+commands: git restore --staged
+
+syntax :git restore --staged <...any file name ...>
+
+Purpose: It unstages a file while  keeping its changes in the current working directory .
+
+Example:git restore --staged file1.txt
+
+Output screenshot :![git config list output](screenshots/git-restore-staged.png)
+
+22.......................................................
+
+commands: git rm 
+
+syntax :git rm <..deleted filename ..>
+
+Purpose: It removes the file from both folder and git tracking .
+
+Example:git rm  file2.txt
+
+Output screenshot :![git config list output](screenshots/git-rm.png)
+
+23.......................................................
+
+commands: git mv 
+
+syntax :git mv <..file name u want change.. > <..rename file name.. >
+
+Purpose: It rename or moves a file and stages the change automatically .
+
+Example:git mv file1.txt newfile1.txt
+
+Output screenshot :![git config list output](screenshots/git-mv.png)
+
+##  Commit Commands
+
+24.......................................................
+
+commands: git 
+
+syntax :
+
+Purpose: 
+
+Example:
+
+Output screenshot :![git config list output](screenshots/git-.png)
