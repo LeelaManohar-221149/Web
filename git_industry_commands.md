@@ -156,6 +156,78 @@ Example:git show
 
 O/p screenshot :![git config list output](screenshots/git-diff.png)
 
+13.........................................................
 
+commands: git diff --staged 
 
+syntax :git diff --staged
+
+Purpose:It display the changes that are staged and ready to committed.
+
+Example:git add index.html 
+        git diff --staged
+
+O/p screenshot :![git config list output](screenshots/git-diff-staged.png)
+
+14.........................................................
+
+commands: git blame 
+
+syntax :git blame
+
+Purpose:It shows who last modified each line of the file and in which commit 
+
+Example:git blame git_industry_commands.md 
+
+O/p screenshot :![git config list output](screenshots/git-blame.png)
+
+15.........................................................
+
+commands: git reflog
+
+syntax :git reflog
+
+Purpose:It shows all the recent logs head movements,including commit ,resets ,and checkouts 
+
+Example:git reflog
+
+Output screenshot :![git config list output](screenshots/git-reflog.png)
+
+16.........................................................
+
+commands: git shortlog
+
+syntax :git shortlog
+
+Purpose:It summarizes the commit history which are grouped by author  
+
+Example:git shortlog
+
+Output screenshot :![git config list output](screenshots/git-shortlog.png)
+
+## File tracking commands 
+
+17.........................................................
+
+commands: git add
+
+syntax :git add 
+
+Purpose:It add a single file to the git .
+
+Example:git add
+
+Output screenshot :![git config list output](screenshots/git-add.png)
+
+18........................................................
+
+commands: git add .
+
+syntax :git add .
+
+Purpose:It adds all the modified and untracked files in the current folder .
+
+Example:git add .
+
+Output screenshot :![git config list output](screenshots/git-add-dot.png)
 
