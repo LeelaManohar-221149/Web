@@ -346,17 +346,127 @@ Example:git add .
 
 Output screenshot :![git config list output](screenshots/git-commit-no-edit.png)
 
-## 
+## Branch Management 
 
 28.......................................................
 
-Commands: git
+Commands: git branch
 
-Syntax :git 
+Syntax :git branch
 
-Purpose:
+Purpose:It shows all the available branches in your local repo and also it shows the current active branch . 
 
-Example:
+Example:git branch
 
-Output screenshot :![git config list output](screenshots/git-.png)
+Output screenshot :![git config list output](screenshots/git-branch.png)
 
+
+29.......................................................
+
+Commands: git branch -a
+
+Syntax :git branch -a
+
+Purpose:It shows all the local and remote branches linked to your repo .
+
+Example:git branch -a
+
+Output screenshot :![git config list output](screenshots/git-branch-a.png)
+
+30.......................................................
+
+Commands: git branch newbranch
+
+Syntax :git branch <newbranchname>
+
+Purpose:These command created  a new branch without switching to it .
+
+Example:git branch dummybranch
+
+Output screenshot :![git config list output](screenshots/git-branch-new.png)
+
+31.......................................................
+
+Commands: git checkout
+
+Syntax :git checkout <branchname>
+
+Purpose:These command switch the required branch .
+
+Example:git checkout dummybranch
+
+Output screenshot :![git config list output](screenshots/git-checkout.png)
+
+32.......................................................
+
+Commands: git checkout -b 
+
+Syntax :git checkout -b <branchname>
+
+Purpose:These command creates a new branch and switch to it directly.
+
+Example:git checkout -b dummybranch
+
+Output screenshot :![git config list output](screenshots/git-branch-b.png)
+
+33.......................................................
+
+Commands: git switch
+
+Syntax :git switch <mainbranchname >
+
+Purpose:These command is an alternative to checkout command .
+
+Example:git switch main
+
+Output screenshot :![git config list output](screenshots/git-switch.png)
+
+34.......................................................
+
+Commands: git switch -c 
+
+Syntax :git switch -c <branchname >
+ 
+Purpose:These command is an alternative to checkout -b  command .It creates new branch and switches to it .
+
+Example:git switch -c dummybranch3
+
+Output screenshot :![git config list output](screenshots/git-switch-c.png)
+
+35.......................................................
+
+Commands: git branch -d  
+
+Syntax :git branch -d <deletedbranchname >
+ 
+Purpose:These command deletes the branch.
+
+Example:git branch -d dummybranch3
+
+Output screenshot :![git config list output](screenshots/git-branch-d.png)
+
+36.......................................................
+
+Commands: git branch -D 
+
+Syntax :git branch -D <deletedbranchname >
+ 
+Purpose:It forcely deletes the branch even if it is not merged into the main branch
+
+Example:git branch -D dummybranch2
+
+Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
+
+## 
+
+37.......................................................
+
+Commands: git branch -D 
+
+Syntax :git branch -D <deletedbranchname >
+ 
+Purpose:It forcely deletes the branch even if it is not merged into the main branch
+
+Example:git branch -D dummybranch2
+
+Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
