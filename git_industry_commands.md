@@ -463,10 +463,23 @@ Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
 
 Commands: git merge
 
-Syntax :git merge
+Syntax :git merge <mergingbranchname>
  
-Purpose:
+Purpose:It combines the changes from one branch into the current branch.
 
-Example:gti merge 
+Example:git  merge mergebranch
 
 Output screenshot :![git config list output](screenshots/git-merge.png)
+
+38........................................................................................
+
+Commands: git merge --no-ff     (merge with no fast forword)
+
+Syntax :git merge --no-ff <mergingbranchname>
+ 
+Purpose:It forcely creates a merge conflict ,even if a fast forword merge is possible ,by preserving the branch history.
+
+Example:git  merge --no-ff mergebranch2
+
+Output screenshot :![git config list output](screenshots/git-merge-no-ff.png)
+
