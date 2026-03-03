@@ -293,14 +293,55 @@ Output screenshot :![git config list output](screenshots/git-mv.png)
 
 ##  Commit Commands
 
+before committing do some changes to the file 
+
 24.......................................................
 
-commands: git 
+commands: git commit
 
-syntax :
+syntax :git commit
 
-Purpose: 
+Purpose: It creates a new commit with changes and opens a default editor to enter a commit    messages 
 
-Example:
+Example:git commit 
 
-Output screenshot :![git config list output](screenshots/git-.png)
+Output screenshot :![git config list output](screenshots/git-commit.png)
+
+25.......................................................
+
+Commands: git commit -m 
+
+Syntax :git commit -m <...description...>
+
+Purpose: It creates a commit with a commit message provided directly in the command line .  
+
+Example:git commit -m "git commit -m command working successfully"
+
+Output screenshot :![git config list output](screenshots/git-commit-m.png)
+
+26.......................................................
+
+Commands: git commit --amend
+
+Syntax :git commit --amend
+
+Purpose:After modify the commited file ,it modifies the most recent commit by changing its messages or addding new changes to it .  
+
+Example:git add .
+        git commit --amend
+
+Output screenshot :![git config list output](screenshots/git-commit-amend.png)
+
+
+27.......................................................
+
+Commands: git commit --no-edit
+
+Syntax :git commit --amend --no-edit
+
+Purpose:It modifes the last commit without changing its existing commit message. 
+
+Example:git add .
+        git commit --amend --no-edit
+
+Output screenshot :![git config list output](screenshots/git-commit-no-edit.png)
