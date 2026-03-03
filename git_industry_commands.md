@@ -385,7 +385,7 @@ Example:git branch dummybranch
 
 Output screenshot :![git config list output](screenshots/git-branch-new.png)
 
-31.......................................................
+31.._____________________________________________________________________________________________
 
 Commands: git checkout
 
@@ -397,7 +397,7 @@ Example:git checkout dummybranch
 
 Output screenshot :![git config list output](screenshots/git-checkout.png)
 
-32.......................................................
+32.._____________________________________________________________________________________________
 
 Commands: git checkout -b 
 
@@ -409,7 +409,7 @@ Example:git checkout -b dummybranch
 
 Output screenshot :![git config list output](screenshots/git-branch-b.png)
 
-33.......................................................
+33.._____________________________________________________________________________________________
 
 Commands: git switch
 
@@ -421,7 +421,7 @@ Example:git switch main
 
 Output screenshot :![git config list output](screenshots/git-switch.png)
 
-34.......................................................
+34.._____________________________________________________________________________________________
 
 Commands: git switch -c 
 
@@ -433,7 +433,7 @@ Example:git switch -c dummybranch3
 
 Output screenshot :![git config list output](screenshots/git-switch-c.png)
 
-35.......................................................
+35._____________________________________________________________________________________________
 
 Commands: git branch -d  
 
@@ -445,7 +445,7 @@ Example:git branch -d dummybranch3
 
 Output screenshot :![git config list output](screenshots/git-branch-d.png)
 
-36.......................................................
+36_____________________________________________________________________________________________
 
 Commands: git branch -D 
 
@@ -459,7 +459,7 @@ Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
 
 ## 
 
-37.......................................................
+37_____________________________________________________________________________________________
 
 Commands: git branch -D 
 
