@@ -373,7 +373,7 @@ Example:git branch -a
 
 Output screenshot :![git config list output](screenshots/git-branch-a.png)
 
-30.......................................................
+30..........................................................................................
 
 Commands: git branch newbranch
 
@@ -385,7 +385,7 @@ Example:git branch dummybranch
 
 Output screenshot :![git config list output](screenshots/git-branch-new.png)
 
-31.._____________________________________________________________________________________________
+31.............................................................................................
 
 Commands: git checkout
 
@@ -397,7 +397,7 @@ Example:git checkout dummybranch
 
 Output screenshot :![git config list output](screenshots/git-checkout.png)
 
-32.._____________________________________________________________________________________________
+32.............................................................................................
 
 Commands: git checkout -b 
 
@@ -409,7 +409,7 @@ Example:git checkout -b dummybranch
 
 Output screenshot :![git config list output](screenshots/git-branch-b.png)
 
-33.._____________________________________________________________________________________________
+33............................................................................................
 
 Commands: git switch
 
@@ -421,7 +421,7 @@ Example:git switch main
 
 Output screenshot :![git config list output](screenshots/git-switch.png)
 
-34.._____________________________________________________________________________________________
+34.............................................................................................
 
 Commands: git switch -c 
 
@@ -433,7 +433,7 @@ Example:git switch -c dummybranch3
 
 Output screenshot :![git config list output](screenshots/git-switch-c.png)
 
-35._____________________________________________________________________________________________
+35............................................................................................
 
 Commands: git branch -d  
 
@@ -445,7 +445,7 @@ Example:git branch -d dummybranch3
 
 Output screenshot :![git config list output](screenshots/git-branch-d.png)
 
-36_____________________________________________________________________________________________
+36.............................................................................................
 
 Commands: git branch -D 
 
@@ -457,16 +457,16 @@ Example:git branch -D dummybranch2
 
 Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
 
-## 
+## Merge and Integrstion commands .
 
-37_____________________________________________________________________________________________
+37........................................................................................
 
-Commands: git branch -D 
+Commands: git merge
 
-Syntax :git branch -D <deletedbranchname >
+Syntax :git merge
  
-Purpose:It forcely deletes the branch even if it is not merged into the main branch
+Purpose:
 
-Example:git branch -D dummybranch2
+Example:gti merge 
 
-Output screenshot :![git config list output](screenshots/git-branch-bigD.png)
+Output screenshot :![git config list output](screenshots/git-merge.png)
