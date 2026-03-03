@@ -617,7 +617,7 @@ Example:git push --force
 
 Output screenshot :![git config list output](screenshots/git-push-force.png)
 
-
+## Stash Commands 
 
 
 
