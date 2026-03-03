@@ -345,3 +345,18 @@ Example:git add .
         git commit --amend --no-edit
 
 Output screenshot :![git config list output](screenshots/git-commit-no-edit.png)
+
+## 
+
+28.......................................................
+
+Commands: git
+
+Syntax :git 
+
+Purpose:
+
+Example:
+
+Output screenshot :![git config list output](screenshots/git-.png)
+
