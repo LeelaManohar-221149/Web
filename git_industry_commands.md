@@ -427,7 +427,7 @@ Commands: git switch -c
 
 Syntax :git switch -c <branchname >
  
-Purpose:These command is an alternative to checkout -b  command .It creates new branch and switches to it .
+Purpose:These command is an alternative to checkout -b  command .It creates new branch and switches tory.
 
 Example:git switch -c dummybranch3
 
@@ -477,9 +477,106 @@ Commands: git merge --no-ff     (merge with no fast forword)
 
 Syntax :git merge --no-ff <mergingbranchname>
  
-Purpose:It forcely creates a merge conflict ,even if a fast forword merge is possible ,by preserving the branch history.
+Purpose:It forcely creates a merge conflict ,even if a fast forword merge is possible ,by preserving the branch .
 
 Example:git  merge --no-ff mergebranch2
 
 Output screenshot :![git config list output](screenshots/git-merge-no-ff.png)
 
+## Remote Repository Commands
+
+39........................................................................................
+
+Commands: git remote 
+
+Syntax :git remote 
+ 
+Purpose:It shows the names of the repos in the local repo.
+
+Example:git remote 
+
+Output screenshot :![git config list output](screenshots/git-remote.png)
+
+40........................................................................................
+
+Commands: git remote -v
+
+Syntax :git remote -v
+ 
+Purpose:It shows remote repo url for fetching  and push operations.
+
+Example:git remote -v
+
+Output screenshot :![git config list output](screenshots/git-remote-v.png)
+
+41........................................................................................
+
+Commands: git remote add
+
+Syntax :git remote  add <link of git repo>
+ 
+Purpose:It adds a new repository connection to the git .
+
+Example:git remote add test https://github.com/test/test.git
+
+Output screenshot :![git config list output](screenshots/git-remote-add.png)
+
+42........................................................................................
+
+Commands: git remote remove
+
+Syntax :git remote remove <link of git repo>
+ 
+Purpose:It removes the repository from the git .
+
+Example:git remote remove test https://github.com/test/test.git
+
+Output screenshot :![git config list output](screenshots/git-remote-remove.png)
+
+43........................................................................................
+
+Commands: git fetch
+
+Syntax :git fetch
+ 
+Purpose:It downloads the changes from the remote repository without merging them..
+
+Example:git fetch 
+
+Output screenshot :![git config list output](screenshots/git-fetch.png)
+
+44........................................................................................
+
+Commands: git fetch --all
+
+Syntax :git fetch --all
+ 
+Purpose:It fetches updates from all the configured remote repos .
+
+Example:git fetch --all
+
+Output screenshot :![git config list output](screenshots/git-fetch-all.png)
+
+45........................................................................................
+
+Commands: git pull
+
+Syntax :git pull
+
+Purpose:It fetches and merges changes from the remote branch into current branch.
+
+Example:git pull
+
+Output screenshot :![git config list output](screenshots/git-pull.png)
+
+45........................................................................................
+
+Commands: git pull --rebase
+
+Syntax :git pull --rebase
+
+Purpose:IT fetches the remote changes and rebases the local commits on the top of them instad of merging.
+
+Example:git pull --rebase
+
+Output screenshot :![git config list output](screenshots/git-pull-rebase.png)
