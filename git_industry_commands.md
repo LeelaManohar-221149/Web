@@ -580,3 +580,27 @@ Purpose:IT fetches the remote changes and rebases the local commits on the top o
 Example:git pull --rebase
 
 Output screenshot :![git config list output](screenshots/git-pull-rebase.png)
+
+46........................................................................................
+
+Commands: git push
+
+Syntax :git push
+
+Purpose:It uploads the local commits to the remote repo.
+
+Example:git push
+
+Output screenshot :![git config list output](screenshots/git-push.png)
+
+47........................................................................................
+
+Commands: git push -u origin 
+
+Syntax :git push -u origin <branchname>
+
+Purpose:It pushes a branch to remote and sets upstream tracking branch.
+
+Example:git push -u origin main
+
+Output screenshot :![git config list output](screenshots/git-push-origin.png)
