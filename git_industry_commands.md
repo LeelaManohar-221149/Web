@@ -602,7 +602,7 @@ Purpose:It forcely pushes by over writing remote branch history with local histo
 Example:git push --force
 Output screenshot :![git config list output](screenshots/git-push-force.png)
 
-## Stash Commands 
+## Stash Commands
 
 49........................................................................................
 
@@ -654,7 +654,78 @@ Example: git stash clear
 Output screenshot :![git config list output](screenshots/git-stash-clear.png)
 
 
+49........................................................................................
 
+Commands: git stash
+
+Syntax :git stash
+
+Purpose:It temporily saves uncommited changes and restores working directory to last commited state.
+
+Example:git stash
+
+Output screenshot :![git config list output](screenshots/git-stash.png)
+
+50........................................................................................
+
+Commands: git stash list
+
+Syntax :git stash list
+
+Purpose:It display list of all stashed changes .
+
+Example:git stash list
+
+Output screenshot :![git config list output](screenshots/git-stash-list.png)
+
+51........................................................................................
+
+Commands: git stash apply
+
+Syntax :git stash apply
+
+Purpose:It applies stashed changes without removing them from stash list .
+
+Example:git stash apply
+
+Output screenshot :![git config list output](screenshots/git-stash-apply.png)
+
+52........................................................................................
+
+Commands: git stash pop 
+
+Syntax :git stash pop
+
+Purpose:It Applies the latest stash and removes it from stash list.
+
+Example:git stash pop
+
+Output screenshot :![git config list output](screenshots/git-stash-pop.png)
+
+53.......................................................................................
+
+Commands: git stash drop
+
+Syntax :git stash drop
+
+Purpose:It deletes a specific stash entry.
+
+Example:git stash drop
+
+Output screenshot :![git config list output](screenshots/git-slash-drop.png)
+
+
+54.......................................................................................
+
+Commands: git stash clear
+
+Syntax :git stash clear
+
+Purpose:It removes all stashed entries permanently.
+
+Example:git stash clear 
+
+Output screenshot :![git config list output](screenshots/git-slash-clear.png)
 
 
 
