@@ -572,52 +572,86 @@ Output screenshot :![git config list output](screenshots/git-pull.png)
 45........................................................................................
 
 Commands: git pull --rebase
-
 Syntax :git pull --rebase
-
-Purpose:IT fetches the remote changes and rebases the local commits on the top of them instad of merging.
-
+Purpose:IT fetches the remote changes and rebases the local commits on the top of them instad of
+        merging.
 Example:git pull --rebase
-
 Output screenshot :![git config list output](screenshots/git-pull-rebase.png)
 
 46........................................................................................
 
 Commands: git push
-
 Syntax :git push
-
 Purpose:It uploads the local commits to the remote repo.
-
 Example:git push
-
 Output screenshot :![git config list output](screenshots/git-push.png)
 
 47........................................................................................
 
 Commands: git push -u origin 
-
 Syntax :git push -u origin <branchname>
-
 Purpose:It pushes a branch to remote and sets upstream tracking branch.
-
 Example:git push -u origin main
-
 Output screenshot :![git config list output](screenshots/git-push-origin.png)
 
 48........................................................................................
 
 Commands: git push --force
-
 Syntax :git push --force
-
 Purpose:It forcely pushes by over writing remote branch history with local history
-
 Example:git push --force
-
 Output screenshot :![git config list output](screenshots/git-push-force.png)
 
 ## Stash Commands 
+
+49........................................................................................
+
+Commands: git stash
+Syntax : git stash
+Purpose: Temporarily saves uncommitted changes in the working directory and clears the working directory so you can work on something else.
+Example: git stash
+Output screenshot :![git config list output](screenshots/git-stash.png)
+
+50........................................................................................
+
+Commands: git stash list
+Syntax : git stash list
+Purpose: Displays a list of all stashed changes stored in the repository.
+Example: git stash list
+Output screenshot :![git config list output](screenshots/git-stash-list.png)
+
+51........................................................................................
+
+Commands: git stash pop
+Syntax : git stash pop
+Purpose: Applies the most recent stash and removes it from the stash list.
+Example: git stash pop
+Output screenshot :![git config list output](screenshots/git-stash-pop.png)
+
+52........................................................................................
+
+Commands: git stash apply
+Syntax : git stash apply
+Purpose: Applies the changes from a stash to the working directory without removing it from
+         the stash list.
+Example: git stash apply
+Output screenshot :![git config list output](screenshots/git-stash-apply.png)
+
+53........................................................................................
+
+Commands: git stash drop
+Syntax : git stash drop
+Purpose: Deletes a specific stash entry from the stash list.
+Example: git stash drop
+Output screenshot :
+
+54........................................................................................
+
+Commands: git stash clear
+Syntax : git stash clear
+Purpose:Removes all stash entries permanently from the repository.
+Example: git stash clear
+Output screenshot :![git config list output](screenshots/git-stash-clear.png)
 
 
 
