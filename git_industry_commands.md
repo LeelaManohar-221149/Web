@@ -823,15 +823,58 @@ Output screenshot :![git config list output](screenshots/git-clean-fd.png)
 
 62......................................................................................
 
-Commands:git 
+Commands: git rebase
 
-Syntax :git clean -fd 
+Syntax : git rebase <branchname>
 
-Purpose:It removes the untracked files and directory from the working directory.
+Purpose: It reapplies commits from the current branch onto another branch to maintain a linear
+        project history.
 
-Example:git clean -fd 
+Example: git switch -c rebase-demo
+        do some changes in files.
+        commit changes 
+        git switch main 
+        git rebase rebase-demo
 
-Output screenshot :![git config list output](screenshots/git-clean-fd.png)
+Output screenshot :![git config list output](screenshots/git-rebase.png)
+
+63......................................................................................
+
+Commands: git rebase -i
+
+Syntax : git rebase -i <commit>
+
+Purpose: It starts an interactive rebase that allows editing, squashing, reordering, or removing commits.
+
+Example: git rebase -i HEAD~2
+
+Output screenshot :![git config list output](screenshots/git-rebase-i.png)
+
+64......................................................................................
+
+Commands: git rebase --continue
+
+Syntax : git rebase --continue
+
+Purpose: It continues the rebase process after resolving merge conflicts.
+
+Example: git rebase --continue
+
+Output screenshot :![git config list output](screenshots/git-rebase-continue.png)
+
+65......................................................................................
+
+Commands: git rebase --abort
+
+Syntax : git rebase --abort
+
+Purpose: It cancels the rebase process and restores the branch to the state before the rebase started.
+
+Example: git rebase --abort
+
+Output screenshot :![git config list output](screenshots/git-rebase-abort.png)
+
+## Cherry Pick Commands
 
 
 
