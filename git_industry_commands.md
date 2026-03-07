@@ -807,7 +807,7 @@ Example:git clean -f
 
 Output screenshot :![git config list output](screenshots/git-clean-f.png)
 
-61.......................................................................................
+61......................................................................................
 
 Commands:git clean -fd
 
@@ -820,6 +820,20 @@ Example:git clean -fd
 Output screenshot :![git config list output](screenshots/git-clean-fd.png)
 
 ## Rebase Commnads
+
+62......................................................................................
+
+Commands:git 
+
+Syntax :git clean -fd 
+
+Purpose:It removes the untracked files and directory from the working directory.
+
+Example:git clean -fd 
+
+Output screenshot :![git config list output](screenshots/git-clean-fd.png)
+
+
 
 
 
