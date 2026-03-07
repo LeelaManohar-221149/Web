@@ -723,11 +723,103 @@ Syntax :git stash clear
 
 Purpose:It removes all stashed entries permanently.
 
-Example:git stash clear 
+Example:git stash clear
 
-Output screenshot :![git config list output](screenshots/git-slash-clear.png)
+Output screenshot :![git config list output](screenshots/git-stash-clear.png)
 
-## 
+## Reset and Undo commands 
+
+55.......................................................................................
+
+Commands:git reset 
+
+Syntax :git reset 
+
+Purpose:IT moves the Head pointer toa specific commit and unstages staged files while keeping the
+        changes in the working directory.
+
+Example:git revert HEAD
+
+Output screenshot :![git config list output](screenshots/git-reset.png)
+
+56.......................................................................................
+
+Commands:git reset --soft
+
+Syntax :git reset --soft HEAD~1
+
+Purpose:Moves the HEAD to the previous commit but keeps all the changes stages in the staging 
+        area.
+
+Example:git reset --soft HEAD~1
+
+Output screenshot :![git config list output](screenshots\git-reset-soft.png)
+
+
+57.......................................................................................
+
+Commands:git reset --mixed
+
+Syntax :git reset --mixed HEAD~1
+
+Purpose:It moves the head to the previous commit and unstages changes but keeps them in
+        the working directory .
+
+Example:git reset --mixed HEAD~1
+
+Output screenshot :![git config list output](screenshots/git-reset-mixed.png)
+
+58.......................................................................................
+
+Commands:git reset --hard 
+
+Syntax :git reset --hard HEAD 
+
+Purpose:It resets the working folder and staging area to match the last commit ,permanently 
+        discard all changes .
+
+Example:git reset --hard HEAD 
+
+Output screenshot :![git config list output](screenshots/git-reset-hard.png)
+
+59.......................................................................................
+
+Commands:git revert 
+
+Syntax :git revert HEAD
+
+Purpose:It creates anew commit that reverses the changes made by a  previous commit without
+        altering commit history .
+
+Example:git revert HEAD
+
+Output screenshot :![git config list output](screenshots/git-revert.png)
+
+60.......................................................................................
+
+Commands:git clean -f
+
+Syntax :git clean -f 
+
+Purpose:It removes all the untracked files from the working directory .
+
+Example:git clean -f
+
+Output screenshot :![git config list output](screenshots/git-clean-f.png)
+
+61.......................................................................................
+
+Commands:git clean -fd
+
+Syntax :git clean -fd 
+
+Purpose:It removes the untracked files and directory from the working directory.
+
+Example:git clean -fd 
+
+Output screenshot :![git config list output](screenshots/git-clean-fd.png)
+
+## Rebase Commnads
 
 
 
