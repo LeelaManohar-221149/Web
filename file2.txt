@@ -1,4 +1,1 @@
-hello world 
-hello hii
-do some changes in the file2.txt and commit 
-hello
+hello manohar
