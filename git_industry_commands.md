@@ -1070,7 +1070,7 @@ Purpose:It ends the bisect session and returns the repository to original branch
 
 Example:git bisect reset
 
-Output screenshot :![git config list output](screenshots/git-submodule-update.png)
+Output screenshot :![git config list output](screenshots/git-bisect-reset.png)
 
 
 
