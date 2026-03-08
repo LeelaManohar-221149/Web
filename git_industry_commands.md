@@ -1022,6 +1022,55 @@ Example:git submodule update
 
 Output screenshot :![git config list output](screenshots/git-submodule-update.png)
 
+## Debugging commands 
+
+74......................................................................................
+
+Commands:git bisect start 
+
+Syntax :git bisect start
+
+Purpose:It starts the session to search through commits to locate the bug.
+
+Example:git bisect start
+
+Output screenshot :![git config list output](screenshots/git-bisect-start.png)
+
+75......................................................................................
+
+Commands:git bisect bad
+
+Syntax :git bisect bad
+
+Purpose:It marks the current commit as bad .
+
+Example:git bisect bad
+
+Output screenshot :![git config list output](screenshots/git-bisect-bad.png)
+
+76......................................................................................
+
+Commands:git bisect good
+
+Syntax :git bisect good 
+
+Purpose: It marks the current commit as good .
+
+Example:git bisect good 
+
+Output screenshot :![git config list output](screenshots/git-bisect-good.png)
+
+77......................................................................................
+
+Commands:git bisect reset
+
+Syntax :git bisect reset
+
+Purpose:It ends the bisect session and returns the repository to original branch .
+
+Example:git bisect reset
+
+Output screenshot :![git config list output](screenshots/git-submodule-update.png)
 
 
 
