@@ -876,6 +876,61 @@ Output screenshot :![git config list output](screenshots/git-rebase-abort.png)
 
 ## Cherry Pick Commands
 
+66......................................................................................
+
+Commands: git cherry-pick 
+
+Syntax : git cherry-pick <commit-hash>
+
+Purpose:It is used to apply specific commit from one branch to another branch without
+        merging the whole branch.
+
+Example:commit something.
+        git log --oneline
+        copy the commit hash .
+        git cherry-pick c460974
+
+Output screenshot :![git config list output](screenshots/git-cherry-pick.png)
+
+67......................................................................................
+
+Commands: git format-patch
+
+Syntax : git format-patch -1 HEAD~1
+
+Purpose:It creates a patch file from a commit ,so it can be shared or applied n another 
+        repo.
+
+Example: git format-patch -1 HEAD
+
+Output screenshot :![git config list output](screenshots/git-rebase-abort.png)
+
+68......................................................................................
+
+Commands: git apply
+
+Syntax : git apply <patch-file>
+
+Purpose:It is used to apply changes from a patch file to the working directory.
+
+Example: git apply 0001-verify.patch
+
+Output screenshot :![git config list output](screenshots/git-apply.png)
+
+69......................................................................................
+
+Commands: git am
+
+Syntax : git am <patch-file>
+
+Purpose:It is used to apply a patch file and automatically cteate a commit from it .
+
+Example: git am 0001-verify.patch
+
+Output screenshot :![git config list output](screenshots/git-am.png)
+
+##
+
 
 
 

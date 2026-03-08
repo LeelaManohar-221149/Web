@@ -1,0 +1,21 @@
+From c4609742fa82e38397fdc1b4c30504d14aaacda2 Mon Sep 17 00:00:00 2001
+From: MANOHAR  MATHURTHI <n221149@rguktn.ac.in>
+Date: Sat, 7 Mar 2026 09:41:08 +0530
+Subject: [PATCH] checkz'
+
+---
+ file2.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/file2.txt b/file2.txt
+index fbeca83..16fd0e5 100644
+--- a/file2.txt
++++ b/file2.txt
+@@ -1,3 +1,4 @@
+ hello manohar
+ hello manohar
+ git 
++git 
+-- 
+2.45.1.windows.1
+
