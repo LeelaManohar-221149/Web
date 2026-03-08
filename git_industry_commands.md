@@ -982,6 +982,48 @@ Example:git tag
 
 Output screenshot :![git config list output](screenshots/git-tag-push.png)
 
+## Submodule Commands 
+
+74......................................................................................
+
+Commands:git submodule add 
+
+Syntax :git submodule add <git repo url>
+
+Purpose:It is used to add another git repo inside the current repo as a submodule.
+
+Example:git submodule add http://github.com/git/git.git
+
+Output screenshot :![git config list output](screenshots/git-submodule-add.png)
+
+73......................................................................................
+
+Commands:git submodule init
+
+Syntax :git submodule init
+
+Purpose:It is used to  initializes the submodules in the repository by registering them 
+        in the local Git configuration.
+
+Example:git submodule init 
+
+Output screenshot :![git config list output](screenshots/git-submodule-init.png)
+
+73......................................................................................
+
+Commands:git submodule update
+
+Syntax :git submodule update
+
+Purpose:It is used to download and update the content of the submodule repositories 
+        to the correct commit.
+
+Example:git submodule update 
+
+Output screenshot :![git config list output](screenshots/git-submodule-update.png)
+
+
+
 
 
 
