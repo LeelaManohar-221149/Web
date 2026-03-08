@@ -929,7 +929,58 @@ Example: git am 0001-verify.patch
 
 Output screenshot :![git config list output](screenshots/git-am.png)
 
-##
+## Tagging Commands 
+
+70......................................................................................
+
+Commands :git tag
+
+Syntax :git tag <tagname>
+
+Purpose :A new tag commit manu will be created for the current commit.
+
+Example:git tag manu
+        git tag
+
+Output screenshot :![git config list output](screenshots/git-tag.png)
+
+71......................................................................................
+
+Commands: git tag -a (annoted tag)
+
+Syntax : git  tag -a <tagname> -m "message"
+
+Purpose:It creates an annoted tag ,which include additional information such as tag meassage ,date.
+
+Example: git tag -a nenu -m "see there there"
+
+Output screenshot :![git config list output](screenshots/git-tag-a.png)
+
+72......................................................................................
+
+Commands: git tag -d 
+
+Syntax : git tag -d <tagname>
+
+Purpose:It is used to delete an existing tag fro the local repo .
+
+Example:git tag 
+        git tag -d nenu
+
+Output screenshot :![git config list output](screenshots/git-tag-d.png)
+
+73......................................................................................
+
+Commands:git push origin --tags
+
+Syntax :git push origin --tags
+
+Purpose:It is used to push all the tags to the local repo of github.
+
+Example:git tag 
+        git tag -d nenu
+
+Output screenshot :![git config list output](screenshots/git-tag-push.png)
 
 
 
