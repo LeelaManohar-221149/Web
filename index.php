@@ -2,160 +2,301 @@
 session_start();
 ?>
 
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NGO Portal</title>
 
-require_once 'google-config.php';
-?>
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-<! DOCTYPE html>
-<html>
-    <head>
-        <title>NGO Portal</title>
-        <style>
-            .a{background-color: aqua;
-                padding-left:50px;
-                height: 20px;
-            }
-            .containers{
-                display: flex;
-                 width: 100%;
+<style>
 
-            }
-            .h{
-                background-color: aqua;
-            }
-            .sidebar{
-            width:200px;
-            background:lightseagreen;
-            border-right:1px solid black;
-            height:calc(80vh - 56px);
-            padding:10px; }
-            .abc{
-                
-                flex:100;              
-                padding: 30px;
-                background-color: white;
-            }
-            .v{
-                padding :10px;
-                color:black;
-            }
-            
-        </style>
-    </head>
-    <body bgcolor="white">
-        <marquee  class="h" ><br><b>Email:</b>manavasevemadhavaseva@gmail.com &nbsp;&nbsp;
-        <b>Phone:</b>798197298<br></marquee>
-        <br>
-        <table border="0">
-            <tr>
-                <td><img src="1.png" width="120px" height="120px"></td>
-                <td><h1 ><b>Manavaseve Madhavaseva Organisation</b></h1>
-                    <p align="center">Service is celebration</p>
-                    <h3 align="center">An Non Government Organisation(NGO)</h3>
-                </td>
-            </tr>
-        
-        </table>
-        <hr>
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* BODY */
+body{
+    background: #f4f7fb;
+}
+
+/* TOP BAR */
+.topbar{
+    background: #2acbf8;
+    color:white;
+    padding:10px;
+    text-align:center;
+    font-size:14px;
+    color:#111;
+}
+
+/* HEADER */
+header{
+    background:white;
+    padding:15px 20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* LOGO SECTION */
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo-section img{
+    border-radius:10px;
+}
+
+.logo-text h1{
+    font-size:24px;
+}
+
+.logo-text p{
+    font-size:14px;
+    color:#555;
+}
+
+/* SEARCH + BUTTONS */
+.header-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    justify-content: center;
+    margin-top:10px;
+
+}
+
+#search{
+    padding:8px 15px;
+    border-radius:20px;
+    border:1px solid #bbbaba;
+    width:250px;
+}
+
+/* BUTTON */
+.btn{
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(90deg,#0072ff,#00c6ff);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    margin-left:5px;
+}
+
+.btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CONTAINER */
+.container{
+    display:flex;
+    gap:20px;
+    padding:20px;
+}
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 40px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* NAV LINKS */
+.nav-links a{
+    margin-right:20px;
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+/* BUTTON */
+.btn{
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:linear-gradient(90deg,#0072ff,#00c6ff);
+    color:white;
+    cursor:pointer;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:220px;
+    background: linear-gradient(#11998e,#38ef7d);
+    padding:15px;
+    border-radius:10px;
+    height:fit-content;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,0.2);
+    transform:translateX(5px);
+}
+
+/* MAIN CONTENT */
+.content{
+    display:cover;
+    background:white;
+    
+    width:100%;
+    height:80%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* IMAGE */
+.content img{
+    width:100%;
+    
+    transition:0.3s;
+}
+
+.content img:hover{
+    transform:scale(1.02);
+}
+
+/* TEXT */
+.text-section{
+    margin-top:20px;
+    line-height:1.6;
+    color:#333;
+}
+
+/* IFRAME */
+iframe{
+    border-radius:10px;
+    margin:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .container{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    Email: manavasevemadhavaseva@gmail.com | Phone: 798197298
+</div>
+
+<!-- HEADER -->
 <header>
-         <p class="a" >
-                <label for="search" class="v" >Search</label>
-                <input type="search" name="search" id="search" >
-                <br>
-                <br>
-        </p>
-                <p align="right">
-                    <a href="donation.html" target="_blank" ><button class="v" >Donated </button></a>&nbsp;&nbsp;
-                    <p align="right">
-                    <?php if (!isset($_SESSION['user_email'])): ?>
-                        <a href="login.php">
-                            <button class="v">Login</button>
-                        </a>
-                        <?php else: ?>
-                                Welcome <?php echo $_SESSION['user_name']; ?> |
-                                <a href="logout.php">
-                                    <button class="v">Logout</button>
-                                </a>
-                            <?php endif; ?>
-                            </p>
 
-
-                    <a href="signup.html" target="_self" ><button class="v">Sign Up</button ></a>&nbsp;&nbsp;
-                </p>
-</header>
-        <hr>
-        <div class="containers">
-            <div class="sidebar" >
-                        <div style="font-size:20px; padding:10px 20px  ;"> 
-                            <a href="upload.html" target="_self">Registration</a>
-                        </div><hr>
-                        <div style="font-size:20px; padding:10px 20px  ;">
-                            <a href="">Donars List</a>
-                        </div><hr>
-                        
-                        <div style="font-size:20px; padding:10px 20px  ;">
-                             <a href="">Services</a>
-                        </div><hr>
-                        <div style="font-size:20px; padding:10px 20px  ;">
-                            <a href="">Administration</a>
-                        </div><hr>
-                        <div style="font-size:20px; padding:10px 20px;">
-                            <a href="upload.php">Agreements</a>
-                        </div>
-                        <div style="font-size:20px; padding:10px 20px  ;">
-                            <a href="test.php">About Organisation</a>
-                        </div><hr>
-                        <br>
-            </div>
-             <div class="abc" width="500" height="400">
-                <img src="2.jpg" width="100%"  height="80%">
-             </div>
-             <br>
-             <br>
+    <div class="logo-section">
+        <img src="1.png" width="100">
+        <div class="logo-text">
+            <h1 style="color:#111;font-size:35px;">Manavaseva Madhavaseva Organisation</h1>
+            <p style="color:#111;font-size:18px;">Service is Celebration | NGO</p>
         </div>
-        <div>
-        <p  class="abc">A <b>on-governmental organization (NGO)</b> is an entity that is not
-                     part of the government. This can include nonprofit and for-
-                    entities. An NGO may get a significant percentage or even all
-                    of its funding from government sources. An NGO typically is
-                     thought to be a nonprofit organization that operates partially 
-                    independent of government control. Nonprofit NGOs often focus 
-                    on humanitarian or social issues but can also include clubs
-                     and associations offering services to members. Some nonprofit
-                    NGOs, like the World Economic Forum, may also act as lobby
-                    groups for corporations. Unlike international organizations
-                    (IGOs), which directly interact with sovereign states and 
-                    governments, NGOs are independent from them.The term as it
-                     is used today was first introduced in Article 71 of the newly 
-                     formed United Nations Charter in 1945.[1] While there is no fixed
-                      or formal definition for what NGOs are, they are generally defined
-                     as nonprofit entities that are independent of government management
-                    or direction—although they may receive government funding.
-            </p>
-        </div> 
-        <iframe src="home.html" width="400" height="400"></iframe>
-        <iframe src="https://ssc.gov.in" width="400" height="400"></iframe>
-        <iframe src="https://www.wango.org/resources.aspx?section=links"
-         width="400" height="400"></iframe>
-         <br>
-    <h3> For More info .. Visit the Links below </h3>
-     <a href="https://www.wango.org/resources.aspx?section=links" align="center">All NGOS website </a>
-     
-     <br>
-    <marquee>
-     <footer align="center">
-        <p >Follow us on <img src="3.jpg" width="100" height="39"></p>
-     </footer>
-    </marquee>
-    <script src="donation.js"></script>
-    <button class="v">Submit</button>
-    
+    </div>
+</header>
 
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#donation">Donation</a>
+        <a href="#about">About</a>
+
+    </div>
+    <div>
+         <input type="search" id="search"  style="width:370px" placeholder="Search here...">
     
-                
-            
-       
-       
-    </body>
+        <a href="donation.html"><button class="btn">Donate</button></a>
+        <?php if (!isset($_SESSION['user_email'])): ?>
+            <a href="login.php"><button class="btn">Login</button></a>
+        <?php else: ?>
+            Welcome <?php echo $_SESSION['user_name']; ?>
+            <a href="logout.php"><button class="btn">Logout</button></a>
+        <?php endif; ?>
+
+    </div>
+</div>
+<img  class="content" src="2.jpg">
+   
+    <div class="content">
+        <
+
+        <div class="text-section">
+            <p>
+            A <b>non-governmental organization (NGO)</b> is an entity that is not part of the government.
+            NGOs focus on social, humanitarian, and community development activities. 
+            They work independently and aim to improve society through services and support.
+            </p>
+        </div>
+        </div>
+
+
+
+
+<!-- IFRAMES -->
+<center>
+<iframe src="home.html" width="350" height="300"></iframe>
+<iframe src="https://ssc.gov.in" width="350" height="300"></iframe>
+<iframe src="https://www.wango.org/resources.aspx?section=links" width="350" height="300"></iframe>
+</center>
+
+<br>
+
+<center>
+<h3>For More Info</h3>
+<a href="https://www.wango.org/resources.aspx?section=links">All NGO Websites</a>
+</center>
+
+<!-- FOOTER -->
+<footer>
+    <p>Follow us on</p>
+    <img src="3.jpg" width="100">
+</footer>
+
+</body>
 </html>
+
+  <!-- SIDEBAR 
+    <div class="sidebar">
+        <a href="upload.html">Registration</a>
+        <a href="#">Donors List</a>
+        <a href="#">Services</a>
+        <a href="#">Administration</a>
+        <a href="upload.php">Agreements</a>
+        <a href="test.php">About Organisation</a>
+    </div>
+-->
