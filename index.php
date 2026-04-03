@@ -59,7 +59,7 @@ session_start();
 <img  class="content" src="2.jpg">
    
     <div class="content">
-        <
+        
 
         <div class="text-section">
             <p>

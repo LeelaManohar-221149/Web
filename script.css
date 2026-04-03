@@ -1,6 +1,4 @@
-/* =========================
-   RESET + GLOBAL STYLES
-========================= */
+
 *{
     margin:0;
     padding:0;
@@ -13,9 +11,7 @@ body{
     line-height:1.6;
 }
 
-/* =========================
-   TOP BAR (CORE STYLING)
-========================= */
+
 .topbar{
     background:linear-gradient(90deg,#00c6ff,#0072ff);
     color:white;
@@ -24,9 +20,7 @@ body{
     font-size:14px;
 }
 
-/* =========================
-   HEADER (FLEXBOX)
-========================= */
+
 header{
     background:white;
     padding:20px;
@@ -51,9 +45,8 @@ header{
     color:#555;
 }
 
-/* =========================
-   NAVBAR (STICKY POSITION)
-========================= */
+/* Navbar css  */
+
 .navbar{
     position:sticky; /* Positioning */
     top:0;
@@ -81,9 +74,9 @@ header{
     color:#0072ff;
 }
 
-/* =========================
-   SEARCH + BUTTONS (FORM STYLING)
-========================= */
+/*Search ,button css  */
+
+
 #search{
     padding:10px 15px;
     border-radius:25px;
@@ -115,9 +108,7 @@ header{
     box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* =========================
-   LAYOUT (GRID SYSTEM)
-========================= */
+/* layout,grid css  */
 .container{
     display:grid; /* CSS Grid */
     grid-template-columns: 220px 1fr;
@@ -125,9 +116,7 @@ header{
     padding:20px;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
+/*side bar css */
 .sidebar{
     background:linear-gradient(#11998e,#38ef7d);
     padding:15px;
@@ -162,7 +151,8 @@ header{
 
 /* IMAGE EFFECT */
 .content img{
-    width:100%;
+    width:100px ;
+    max-height:100px;
     border-radius:10px;
     transition:0.3s;
 }
@@ -176,18 +166,13 @@ header{
     margin-top:20px;
 }
 
-/* =========================
-   IFRAME STYLING
-========================= */
 iframe{
     border-radius:10px;
     margin:10px;
     box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* =========================
-   FOOTER
-========================= */
+
 footer{
     background:#111;
     color:white;
@@ -196,9 +181,7 @@ footer{
     margin-top:20px;
 }
 
-/* =========================
-   POSITIONING EXAMPLE
-========================= */
+
 .content{
     position:relative;
 }
@@ -214,9 +197,7 @@ footer{
     background:linear-gradient(90deg,#0072ff,#00c6ff);
 }
 
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
+
 @media(max-width:768px){
 
     .container{

@@ -2,74 +2,171 @@
 <html>
 <head>
     <title>Donation Page</title>
-     <style>
+    <style>
         body {
-           font-family: Arial;
-            background-color:darkturquoise;
-          
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            margin: 0;
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         .box {
-            margin-top: 10px;
-             background-image:url("1.png");
-            background-size:100px;      
-            background-repeat: no-repeat;
-            background-position:top;
-            width: 800px;
-            margin:100px ;
-            padding:100px;
-            background-color:lightsteelblue;
-            border-radius:60px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            width: 500px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeIn 1s ease-in-out;
         }
-        input{
+        .iframe-section {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 30px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .iframe-section h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #38ef7d;
+        }
+        iframe {
+            border-radius: 12px;
             width: 100%;
-            padding: 10px;
-            margin-top:10px;
+            height: 220px;
+            border: none;
         }
-        button{
-            padding:30px;
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #fff;
+            font-size: 32px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
         }
-        .t{
-            padding:10px;
-            background-color:lightseagreen;
+        label {
+            font-size: 15px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px 0;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 10px #38ef7d;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        button.t, input[type="reset"] {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button.t {
+            background: #fff;
+            color: #11998e;
+        }
+        button.t:hover {
+            background: #38ef7d;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        input[type="reset"] {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+        input[type="reset"]:hover {
+            background: #fff;
+            color: #11998e;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h2>Donation Form</h2>
-    Enter Name :
-    <input type="text" id="name" placeholder="Donor Name">
-    Email ID:
-    <input type="email" id="name" >
-    Phone Number :
-    <input type="number" id="name">
-    Doante For :
-    <input type="name" id="name" placeholder="food,education,ruraldevelopment,health etc ">
-    Enter Amount:
-    <input type="number" id="amount" placeholder="amount">
-    Payment Mode :
-     <input type="name" id="amount" placeholder="netbanking/creditcard/debitcard/UPI">
-    <br>
-    <br>
-    <button  class="t" onclick="confirmDonate()">Proceed Payment </button>
+<div class="container">
+    <div class="box">
+        <h2>Donation Form</h2>
+        
+        <label>Enter Name :</label>
+        <input type="text" id="donor_name" placeholder="Donor Name">
+        
+        <label>Email ID:</label>
+        <input type="email" id="email" placeholder="Email Address">
+        
+        <label>Phone Number :</label>
+        <input type="number" id="phone" placeholder="Phone Number">
+        
+        <label>Donate For :</label>
+        <input type="text" id="reason" placeholder="food, education, ruraldevelopment, health etc">
+        
+        <label>Enter Amount:</label>
+        <input type="number" id="amount" placeholder="Amount">
+        
+        <label>Payment Mode :</label>
+        <input type="text" id="payment_mode" placeholder="netbanking/creditcard/debitcard/UPI">
+        
+        <label>Comments:</label>
+        <input type="text" id="comments" placeholder="Suggestions">
+        
+        <div class="btn-group">
+            <button class="t" onclick="confirmDonate()">Proceed Payment</button>
+            <input type="reset" name="rest" value="Reset details">
+        </div>
 
-    <br>
-    <br>
-     Comments:
-    <input type="number" id="amount" placeholder="Suggestions">
+        <script src="donation.js"></script>
+    </div>
 
-
-    
-    <input  type="reset"  name="rest" value="Reset details">
-    
-
-    <script src="donation.js"></script>
-
-
-   
-
+    <div class="iframe-section">
+        <h3>Why Donate?</h3>
+        <iframe src="https://www.youtube.com/embed/z4rO8iNq2bM?si=GzKkX1_N6tSjC42X" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        <h3 style="margin-top: 15px;">Our Impact</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15225.961011508216!2d78.43577732297138!3d17.43621424419998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90b9b3fd5f17%3A0xc3f345593c66f57c!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500038!5e0!3m2!1sen!2sin!4v1689243763261!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </div>
- 
 
 </body>
 </html>
