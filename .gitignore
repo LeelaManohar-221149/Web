@@ -1,6 +1,19 @@
-git add .
+# Environment Configuration
+
+# Composer Dependencies
 vendor/
+composer.lock
+
+# User Uploaded Data (ID Proofs)
 uploads/
-node_modules/
-C:\xampp\htdocs\Web\.env
-*.loggoogle-config.php 
+
+# Testing Scripts
+mongoDB/test_mongo.php
+
+# Secrets and Configuration Files
+google-config.php
+config/
+mongoDB/config/db.php
+.env
+*.pem
+*.key

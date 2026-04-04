@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/config/db.php';
+require __DIR__ . '/config/database.php';
 ?>
 <?php
 session_start();
@@ -9,102 +9,254 @@ require_once 'google-config.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>login_page </title>
+    <title>Login Page | NGO Portal</title>
     <style>
         body {
             margin: 0;
-            font-family:italic;
-            background: teal;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+
+        .split-layout {
             display: flex;
-            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .image-half {
+            flex: 1;
+            background: url('images/volunteer_group.png') center/cover no-repeat;
+            position: relative;
+            display: flex;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+        }
+
+        .image-half::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.4), rgba(17, 24, 39, 0.8));
+        }
+
+        .image-text {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .image-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .image-text p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .form-half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 40px;
         }
 
         .loginbox {
-            background: #001F3F;
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            width: 350px;
+            width: 100%;
+            max-width: 400px;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .login-box h2 {
-            margin-bottom: 20px;
-            color: #fff;
+        .loginbox h2 {
+            margin-bottom: 30px;
+            color: #111827;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
         }
 
         .input-box {
-            margin: 10px 0;
+            margin: 20px 0;
+            text-align: left;
         }
 
         .input-box input {
             width: 100%;
-            padding: 10px;
-            border-radius: 20px;
-            border: none;
+            padding: 14px 15px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            color: #111827;
             outline: none;
+            box-sizing: border-box;
+            transition: 0.2s;
+            font-size: 15px;
+        }
+
+        .input-box input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: #ffffff;
         }
 
         .btn {
-            margin-top: 15px;
-            padding: 10px;
+            margin-top: 10px;
+            padding: 14px;
             width: 100%;
-            border-radius: 20px;
+            border-radius: 6px;
             border: none;
-            background: #003366;
+            background: #2563eb;
             color: white;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
 
         .google-btn {
-            margin-top: 10px;
-            padding: 10px;
+            margin-top: 20px;
+            padding: 14px;
             width: 100%;
-            border-radius: 20px;
-            border: none;
-            background: #FFD700;
-            color: black;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            color: #374151;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+        }
+
+        .google-btn:hover {
+            background: #f9fafb;
         }
 
         .forgot {
-            font-size: 12px;
-            color: white;
-            margin-top: 10px;
+            font-size: 14px;
+            margin-top: 15px;
+            text-align: right;
+        }
+        
+        .forgot a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .forgot a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e5e7eb;
+            margin: 30px 0;
+        }
+
+        .register-link {
+            text-align: center;
+            color: #6b7280;
+            font-size: 15px;
+            margin-top: 25px;
+        }
+
+        .register-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .split-layout {
+                flex-direction: column;
+            }
+            .image-half {
+                min-height: 30vh;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="loginbox">
-    <h2 style="color:#FFD700;">Login Avvandi ayya</h2>
-
-    <form action="login-process.php" method="POST">
-        <div class="input-box">
-            <input type="email" name="email" placeholder="Email" required>
+<div class="split-layout">
+    <div class="image-half">
+        <div class="image-text">
+            <h1>Welcome Back</h1>
+            <p>Every login helps us orchestrate more impact across communities.</p>
         </div>
-
-        <div class="input-box">
-            <input type="password" name="password" placeholder="Password" required>
-        </div>
-
-        <button class="btn" type="submit">Login</button>
-    </form>
-
-    <div class="forgot">
-       <a href="forgot_password.html">Forgot Password?</a>
     </div>
+    
+    <div class="form-half">
+        <div class="loginbox">
+            <h2>Sign in to your account</h2>
+            
+            <?php if(isset($_GET['error']) && $_GET['error'] === 'not_registered'): ?>
+            <div style="background-color: #fee2e2; border: 1px solid #ef4444; color: #b91c1c; padding: 10px; border-radius: 6px; margin-bottom: 20px; font-size: 14px;">
+                <b>Access Denied:</b> This Google account is not registered in our database. Please sign up first!
+            </div>
+            <?php endif; ?>
 
-    <hr style="margin:15px 0;">
+            <form action="login_process.php" method="POST">
+                <div class="input-box">
+                    <input type="email" name="email" placeholder="Email address" required>
+                </div>
 
-   
-    <a href="<?php echo htmlspecialchars($client->createAuthUrl()); ?>">
-        <button class="google-btn"><b>Login with Google</b></button>
-    </a>
-    <p style="color:white">Already have an account? <a href="signup.html"><b style="color:#FFD700">Sign Up</b></a></p>
+                <div class="input-box">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <div class="forgot">
+                   <a href="forgot_password.html">Forgot password?</a>
+                </div>
+
+                <button class="btn" type="submit">Sign In</button>
+            </form>
+
+            <hr>
+
+            <a href="<?php echo htmlspecialchars($client->createAuthUrl() ?? '#'); ?>" style="text-decoration: none;">
+                <button class="google-btn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" style="width: 20px;">
+                    Continue with Google
+                </button>
+            </a>
+            
+            <div class="register-link">
+                Don't have an account? <a href="signup.html">Register here</a>
+            </div>
+            <div class="register-link" style="margin-top: 10px;">
+                &#8592; <a href="index.php">Back to Home</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

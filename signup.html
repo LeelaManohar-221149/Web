@@ -1,121 +1,240 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign Up</title>
+    <title>Sign Up | NGO Portal</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1f4037, #99f2c8);
             margin: 0;
-            padding: 40px 0;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            color: #111827;
+        }
+
+        .split-layout {
             display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            color: #fff;
         }
-        .box {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(15px);
+
+        .image-half {
+            flex: 1.2;
+            background: url('images/volunteer_group.png') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-half::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(37, 99, 235, 0.4), rgba(17, 24, 39, 0.8));
+        }
+
+        .image-text {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+            text-align: center;
             padding: 40px;
-            border-radius: 20px;
-            width: 480px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            animation: slideUp 0.8s ease-out;
-            box-sizing: border-box;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
+
+        .image-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .image-text p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        .form-half {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            padding: 40px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 440px;
+            animation: fadeIn 0.4s ease-out;
+            box-sizing: border-box;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #99f2c8;
+
+        .box h2 {
+            margin-bottom: 30px;
+            color: #111827;
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 0;
         }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
         input, select {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0 15px 0;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            box-sizing: border-box;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        input:focus, select:focus {
-            box-shadow: 0 0 8px #99f2c8;
+            padding: 14px 15px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            color: #111827;
             outline: none;
+            box-sizing: border-box;
+            transition: 0.2s;
+            font-size: 15px;
         }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: #ffffff;
+        }
+        
+        input[type="file"] {
+            padding: 10px 15px;
+            background: #ffffff;
+        }
+
         .btn-container {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
+            margin-top: 25px;
         }
+
         button {
-            width: 45%;
-            padding: 12px;
-            border-radius: 20px;
+            padding: 14px;
+            flex: 1;
+            border-radius: 6px;
             border: none;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            font-size: 16px;
+            transition: 0.2s;
         }
+
         .sign {
-            background: linear-gradient(135deg, #11998e, #38ef7d);
-            color: #fff;
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
         }
+
         .sign:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(56, 239, 125, 0.4);
+            background: #1d4ed8;
+            transform: translateY(-1px);
         }
+
         .reset {
-            background-color: transparent;
-            border: 2px solid #38ef7d;
-            color: #38ef7d;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
         }
+
         .reset:hover {
-            background-color: #38ef7d;
-            color: #000;
-            transform: translateY(-3px);
+            background: #f9fafb;
+        }
+
+        .login-link {
+            text-align: center;
+            color: #6b7280;
+            font-size: 15px;
+            margin-top: 25px;
+        }
+
+        .login-link a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 900px) {
+            .split-layout {
+                flex-direction: column;
+            }
+            .image-half {
+                min-height: 25vh;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h2>First Signup avvali-Webiste Use cheyali antey</h2>
-
-    <form action="signup.php" method="post" enctype="multipart/form-data">
-        Name:<br>
-        <input type="text" name="username" placeholder="Username" required>
-        Password:<br>
-        <input type="password" name="password" placeholder="Password" required>
-        Confirm Password:<br>
-        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
-        Gender:<br>
-        <select name="gender" required>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        Email:<br>
-        <input type="email" name="mail" placeholder="Email" required>
-        Phone Number:<br>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        Rationcard Photo:<br>
-        <input type="file" name="upload_proof" required>
-        
-        <div class="btn-container">
-            <button type="submit" class="sign">Sign Up</button>
-            <button type="reset" class="reset">Reset</button>
+<div class="split-layout">
+    <div class="image-half">
+        <div class="image-text">
+            <h1>Join Our Mission</h1>
+            <p>Become a volunteer today and help us bring meaningful change to the world.</p>
         </div>
-    </form>
+    </div>
+
+    <div class="form-half">
+        <div class="box">
+            <h2>Create an Account</h2>
+
+            <form action="signup.php" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="text" name="username" placeholder="Full Name" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" name="mail" placeholder="Email Address" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                </div>
+                
+                <div class="input-group">
+                    <select name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                
+                <div class="input-group">
+                    <input type="file" name="upload_proof" aria-label="Upload ID Proof" required>
+                </div>
+                
+                <div class="btn-container">
+                    <button type="submit" class="sign">Register</button>
+                    <button type="reset" class="reset">Clear</button>
+                </div>
+                
+                <div class="login-link">
+                    Already have an account? <a href="login.php">Sign In</a>
+                </div>
+                <div class="login-link" style="margin-top: 10px;">
+                    &#8592; <a href="index.php">Back to Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 </body>

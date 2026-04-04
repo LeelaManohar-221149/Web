@@ -1,170 +1,251 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Donation Page</title>
+    <title>Donation Page | NGO Portal</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #11998e, #38ef7d);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
             margin: 0;
-            padding: 40px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #fff;
+            color: #111827;
         }
+
+        .header-banner {
+            background: url('images/community_impact.png') center/cover no-repeat;
+            position: relative;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(37, 99, 235, 0.4));
+        }
+
+        .header-text {
+            position: relative;
+            z-index: 1;
+            color: #ffffff;
+        }
+
+        .header-text h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .header-text p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .return-home {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            color: white;
+            z-index: 2;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+
+        .return-home:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
         .container {
             display: flex;
-            gap: 30px;
+            gap: 40px;
             max-width: 1200px;
+            margin: -50px auto 50px auto;
             padding: 0 20px;
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
+            z-index: 2;
         }
-        .box {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
+        
+        .box, .iframe-section {
+            background: #ffffff;
+            border-radius: 8px;
             padding: 40px;
             width: 500px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: fadeIn 1s ease-in-out;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            box-sizing: border-box;
         }
+
         .iframe-section {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 20px;
-            padding: 30px;
-            width: 400px;
             display: flex;
             flex-direction: column;
             gap: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            animation: fadeIn 1.2s ease-in-out;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+
+        .section-title {
+            margin-top: 0;
+            color: #111827;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+            display: inline-block;
         }
+
         .iframe-section h3 {
             margin-top: 0;
-            margin-bottom: 10px;
-            color: #38ef7d;
+            margin-bottom: 15px;
+            color: #111827;
+            font-size: 20px;
+            font-weight: 600;
         }
+        
         iframe {
-            border-radius: 12px;
+            border-radius: 6px;
             width: 100%;
-            height: 220px;
-            border: none;
+            height: 230px;
+            border: 1px solid #e5e7eb;
+            background: #f9fafb;
         }
-        h2 {
-            margin-top: 0;
-            text-align: center;
-            color: #fff;
-            font-size: 32px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-            margin-bottom: 30px;
+        
+        .input-group {
+            margin-bottom: 15px;
         }
-        label {
-            font-size: 15px;
-            font-weight: 500;
-            display: inline-block;
-            margin-top: 10px;
-        }
+        
         input {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0 15px 0;
-            border-radius: 10px;
-            border: none;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 14px 15px;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
             box-sizing: border-box;
-            transition: 0.3s;
+            transition: 0.2s;
+            font-size: 15px;
+            color: #111827;
         }
+        
         input:focus {
             outline: none;
-            box-shadow: 0 0 10px #38ef7d;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            border-color: #2563eb;
+            background: #ffffff;
         }
+        
         .btn-group {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
+        
         button.t, input[type="reset"] {
             flex: 1;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
             border: none;
-            border-radius: 10px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
+            text-align: center;
         }
+        
         button.t {
-            background: #fff;
-            color: #11998e;
+            background: #10b981; /* Green for donate */
+            color: #fff;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
         }
+        
         button.t:hover {
-            background: #38ef7d;
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #059669;
+            transform: translateY(-1px);
         }
+        
         input[type="reset"] {
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
         }
+        
         input[type="reset"]:hover {
-            background: #fff;
-            color: #11998e;
-            transform: translateY(-2px);
+            background: #f3f4f6;
+        }
+        
+        @media(max-width: 1000px) {
+            .container {
+                margin-top: 30px;
+            }
         }
     </style>
 </head>
 <body>
 
+<div class="header-banner">
+    <a href="index.php" class="return-home">&#8592; Back to Home</a>
+    <div class="header-text">
+        <h1>Your Contribution Matters</h1>
+        <p>100% of your donation directly funds community programs.</p>
+    </div>
+</div>
+
 <div class="container">
     <div class="box">
-        <h2>Donation Form</h2>
+        <h2 class="section-title">Donation Details</h2>
         
-        <label>Enter Name :</label>
-        <input type="text" id="donor_name" placeholder="Donor Name">
-        
-        <label>Email ID:</label>
-        <input type="email" id="email" placeholder="Email Address">
-        
-        <label>Phone Number :</label>
-        <input type="number" id="phone" placeholder="Phone Number">
-        
-        <label>Donate For :</label>
-        <input type="text" id="reason" placeholder="food, education, ruraldevelopment, health etc">
-        
-        <label>Enter Amount:</label>
-        <input type="number" id="amount" placeholder="Amount">
-        
-        <label>Payment Mode :</label>
-        <input type="text" id="payment_mode" placeholder="netbanking/creditcard/debitcard/UPI">
-        
-        <label>Comments:</label>
-        <input type="text" id="comments" placeholder="Suggestions">
-        
-        <div class="btn-group">
-            <button class="t" onclick="confirmDonate()">Proceed Payment</button>
-            <input type="reset" name="rest" value="Reset details">
-        </div>
-
-        <script src="donation.js"></script>
+        <form action="donation_process.php" method="POST">
+            <div class="input-group">
+                <input type="text" name="donor_name" placeholder="Full Name" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="number" name="phone" placeholder="Phone Number" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" name="reason" placeholder="Purpose (e.g. Education, Health, Food)" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="number" name="amount" placeholder="Donation Amount ($)" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" name="payment_mode" placeholder="Payment Method (Card / UPI)" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" name="comments" placeholder="Comments or Suggestions">
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="t">Proceed securely</button>
+                <input type="reset" value="Clear Form">
+            </div>
+        </form>
     </div>
 
     <div class="iframe-section">
-        <h3>Why Donate?</h3>
-        <iframe src="https://www.youtube.com/embed/z4rO8iNq2bM?si=GzKkX1_N6tSjC42X" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h2 class="section-title">See Your Impact</h2>
         
-        <h3 style="margin-top: 15px;">Our Impact</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15225.961011508216!2d78.43577732297138!3d17.43621424419998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90b9b3fd5f17%3A0xc3f345593c66f57c!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500038!5e0!3m2!1sen!2sin!4v1689243763261!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+            <h3>Our Mission in Action</h3>
+            <iframe src="https://www.youtube.com/embed/z4rO8iNq2bM?si=GzKkX1_N6tSjC42X" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <div style="margin-top:10px;">
+            <h3>Service Locations</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15225.961011508216!2d78.43577732297138!3d17.43621424419998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90b9b3fd5f17%3A0xc3f345593c66f57c!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500038!5e0!3m2!1sen!2sin!4v1689243763261!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 </div>
 

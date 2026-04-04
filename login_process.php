@@ -5,7 +5,7 @@ require_once 'config/database.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$user = $collection->findOne(['email' => $email]);
+$user = $userCollection->findOne(['email' => $email]);
 
 if (!$user || !password_verify($password, $user['password'])) {
     die("Invalid Email or Password!");
@@ -14,6 +14,6 @@ if (!$user || !password_verify($password, $user['password'])) {
 $_SESSION['user_name'] = $user['name'];
 $_SESSION['user_email'] = $user['email'];
 
-header("Location: index.php");
+header("Location: dashboard.php");
 exit;
 ?>
