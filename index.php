@@ -8,15 +8,15 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manavaseva Madhavaseva | NGO Portal</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="script.css">
+    <link rel="stylesheet" href = "script.css">
 </head>
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
     <div class="topbar-content">
-        <span>📧 manavasevemadhavaseva@gmail.com</span>
-        <span>📞 +91 798197298</span>
+        <span>Email: manavasevemadhavaseva@gmail.com</span>
+        <span>Phone: +91 798197298</span>
     </div>
 </div>
 
@@ -31,12 +31,14 @@ session_start();
             </div>
         </div>
     </div>
-    
+
     <div class="nav-bottom">
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About us</a>
-            <a href="#impact">Our Impact</a>
+            <a href="#programs">Programs</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
         </div>
 
         <div class="nav-actions">
@@ -45,15 +47,13 @@ session_start();
                 <input type="search" id="search" placeholder="Search...">
             </div>
 
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">🌙</button>
-
             <?php if (!isset($_SESSION['user_email'])): ?>
-                <a href="login.html" class="btn-outline">Login</a>
+                <a href="login.php" class="btn-outline">Login</a>
             <?php else: ?>
                 <span class="user-greeting">Welcome, <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?></span>
                 <a href="logout.php" class="btn-outline">Logout</a>
             <?php endif; ?>
-            
+
             <a href="donation.html" class="btn-primary">Donate</a>
         </div>
     </div>
@@ -102,12 +102,36 @@ session_start();
     </div>
 </section>
 
+<!-- PROGRAMS SECTION -->
+<section class="programs-section" id="programs">
+    <div class="container">
+        <div class="section-title">
+            <h3>Focused Programs</h3>
+            <p>We build long-term change through locally led, measurable initiatives.</p>
+        </div>
+        <div class="program-grid">
+            <div class="program-card">
+                <h4>Education Access</h4>
+                <p>Scholarships, after-school support, and digital learning centers for students in need.</p>
+            </div>
+            <div class="program-card">
+                <h4>Health Outreach</h4>
+                <p>Mobile health camps, maternal care, and preventive screenings for underserved areas.</p>
+            </div>
+            <div class="program-card">
+                <h4>Livelihood Support</h4>
+                <p>Skill training, micro-grants, and job placement assistance for families.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- IMPACT / IFRAMES SECTION -->
 <section class="impact-section" id="impact">
     <div class="container">
         <div class="section-title">
-            <h3>Resources & Links</h3>
-            <p>Explore our network and useful community resources.</p>
+            <h3>Impact and Resources</h3>
+            <p>Explore our partner network and trusted community resources.</p>
         </div>
         <div class="iframe-grid">
             <div class="iframe-card">
@@ -129,6 +153,44 @@ session_start();
     </div>
 </section>
 
+<!-- CTA SECTION -->
+<section class="cta-section" id="cta">
+    <div class="container cta-container">
+        <div class="cta-text">
+            <h3>Your support powers measurable change.</h3>
+            <p>Join our volunteer network or make a donation that goes directly to verified programs.</p>
+        </div>
+        <div class="cta-actions">
+            <a href="signup.html" class="btn-primary large">Become a Volunteer</a>
+            <a href="donation.html" class="btn-secondary large">Support a Cause</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h3>Contact Us</h3>
+            <p>We respond within 24 to 48 hours on business days.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4>Head Office</h4>
+                <p>Ameerpet, Hyderabad, Telangana</p>
+                <p>Email: manavasevemadhavaseva@gmail.com</p>
+                <p>Phone: +91 798197298</p>
+            </div>
+            <div class="contact-card">
+                <h4>Working Hours</h4>
+                <p>Monday to Saturday</p>
+                <p>9:00 AM to 6:00 PM</p>
+                <p>Sunday closed</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer class="modern-footer">
     <div class="footer-container">
@@ -141,7 +203,7 @@ session_start();
         <div class="footer-links">
             <a href="#home">Home</a>
             <a href="donation.html">Donation</a>
-            <a href="login.html">Login</a>
+            <a href="login.php">Login</a>
             <a href="signup.html">Register</a>
         </div>
         <div class="footer-social">
@@ -154,33 +216,7 @@ session_start();
     </div>
 </footer>
 
-<script>
-    // Dark Mode Toggle Logic
-    const themeBtn = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-    
-    // Check local storage for existing theme preference
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', currentTheme);
-    themeBtn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-
-    themeBtn.addEventListener('click', () => {
-        const newTheme = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        themeBtn.textContent = newTheme === 'light' ? '🌙' : '☀️';
-    });
-
-    // Sticky Navbar shadow effect
-    window.addEventListener('scroll', () => {
-        const nav = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-</script>
+<script src="script.js?v=3"></script>
 
 </body>
 </html>

@@ -1,14 +1,24 @@
 <?php
-require __DIR__ . '/config/database.php';
-?>
-<?php
 session_start();
-require_once 'google-config.php';
-?>
 
+$googleLoginUrl = null;
+
+require_once __DIR__ . '/config/env.php';
+load_env_file(__DIR__ . '/.env');
+
+$hasGoogleCredentials = (bool) env('GOOGLE_CLIENT_ID') && (bool) env('GOOGLE_CLIENT_SECRET');
+$hasComposerAutoload = file_exists(__DIR__ . '/vendor/autoload.php');
+
+if ($hasGoogleCredentials && $hasComposerAutoload) {
+    require_once __DIR__ . '/google-config.php';
+    $googleLoginUrl = $client->createAuthUrl();
+}
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page | NGO Portal</title>
     <style>
         body {
@@ -25,7 +35,7 @@ require_once 'google-config.php';
 
         .image-half {
             flex: 1;
-            background: url('images/volunteer_group.png') center/cover no-repeat;
+            background: url('2.jpg') center/cover no-repeat;
             position: relative;
             display: flex;
             align-items: center;
@@ -73,7 +83,7 @@ require_once 'google-config.php';
             max-width: 400px;
             animation: fadeIn 0.4s ease-out;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -147,10 +157,16 @@ require_once 'google-config.php';
             align-items: center;
             gap: 12px;
             transition: 0.2s;
+            box-sizing: border-box;
         }
 
         .google-btn:hover {
             background: #f9fafb;
+        }
+
+        .google-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
         }
 
         .forgot {
@@ -158,13 +174,13 @@ require_once 'google-config.php';
             margin-top: 15px;
             text-align: right;
         }
-        
+
         .forgot a {
             color: #2563eb;
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         .forgot a:hover {
             text-decoration: underline;
         }
@@ -192,20 +208,38 @@ require_once 'google-config.php';
         .register-link a:hover {
             text-decoration: underline;
         }
-        
+
+        .message {
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .message.error {
+            background-color: #fee2e2;
+            border: 1px solid #ef4444;
+            color: #b91c1c;
+        }
+
+        .message.success {
+            background-color: #dcfce7;
+            border: 1px solid #22c55e;
+            color: #166534;
+        }
+
         @media (max-width: 768px) {
             .split-layout {
                 flex-direction: column;
             }
+
             .image-half {
                 min-height: 30vh;
             }
         }
     </style>
 </head>
-
 <body>
-
 <div class="split-layout">
     <div class="image-half">
         <div class="image-text">
@@ -213,18 +247,36 @@ require_once 'google-config.php';
             <p>Every login helps us orchestrate more impact across communities.</p>
         </div>
     </div>
-    
+
     <div class="form-half">
         <div class="loginbox">
             <h2>Sign in to your account</h2>
-            
-            <?php if(isset($_GET['error']) && $_GET['error'] === 'not_registered'): ?>
-            <div style="background-color: #fee2e2; border: 1px solid #ef4444; color: #b91c1c; padding: 10px; border-radius: 6px; margin-bottom: 20px; font-size: 14px;">
+
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'not_registered'): ?>
+            <div class="message error">
                 <b>Access Denied:</b> This Google account is not registered in our database. Please sign up first!
             </div>
             <?php endif; ?>
 
-            <form action="login_process.php" method="POST">
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'invalid_credentials'): ?>
+            <div class="message error">
+                Invalid email or password. Please try again.
+            </div>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'missing_fields'): ?>
+            <div class="message error">
+                Please enter both email and password.
+            </div>
+            <?php endif; ?>
+
+            <?php if (isset($_GET['msg']) && $_GET['msg'] === 'registered'): ?>
+            <div class="message success">
+                Registration successful. You can log in now.
+            </div>
+            <?php endif; ?>
+
+            <form action="login_process.php" method="POST" id="login-form" onsubmit="return showLoginPopup();">
                 <div class="input-box">
                     <input type="email" name="email" placeholder="Email address" required>
                 </div>
@@ -232,9 +284,9 @@ require_once 'google-config.php';
                 <div class="input-box">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
-                
+
                 <div class="forgot">
-                   <a href="forgot_password.html">Forgot password?</a>
+                    <a href="forgot_password.html">Forgot password?</a>
                 </div>
 
                 <button class="btn" type="submit">Sign In</button>
@@ -242,13 +294,20 @@ require_once 'google-config.php';
 
             <hr>
 
-            <a href="<?php echo htmlspecialchars($client->createAuthUrl() ?? '#'); ?>" style="text-decoration: none;">
-                <button class="google-btn">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo" style="width: 20px;">
+            <?php if ($googleLoginUrl !== null): ?>
+            <a href="<?php echo htmlspecialchars($googleLoginUrl); ?>" style="text-decoration: none;">
+                <button class="google-btn" type="button">
+                    <img src="Google-g-icon.png" alt="Google Logo" style="width: 20px;">
                     Continue with Google
                 </button>
             </a>
-            
+            <?php else: ?>
+            <button class="google-btn" type="button" disabled title="Google login is not configured yet">
+                <img src="Google-g-icon.png" alt="Google Logo" style="width: 20px;">
+                Google sign-in unavailable
+            </button>
+            <?php endif; ?>
+
             <div class="register-link">
                 Don't have an account? <a href="signup.html">Register here</a>
             </div>
@@ -258,6 +317,11 @@ require_once 'google-config.php';
         </div>
     </div>
 </div>
-
+<script>
+function showLoginPopup() {
+    alert("You successfully logined.");
+    return true;
+}
+</script>
 </body>
 </html>

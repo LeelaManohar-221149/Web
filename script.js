@@ -1,185 +1,174 @@
+document.addEventListener("DOMContentLoaded", function () {
+    let student_name = "manohar ";
+    let gender = "male";
+    let age = 19;
+    let isStudent = true;
 
-let studen_namet="manohar "
-let gender="male"
-let age=19
-let is student=true;
+    console.log(student_name);
+    console.log(gender);
+    console.log(age);
+    console.log(isStudent);
 
-console.log(student_name);
-console.log(gender);
-console.log(age)
-
-
-function popup() {
-    alert("WElcome !Please sign in ...");
-}
-
-/* =========================
-   1. VARIABLES
-========================= */
-
-// const variable
-const ngoName = "Manavaseva Madhavaseva Organisation";
-
-// let variable (can change)
-let donationCount = 100;
-
-// display in console
-console.log("NGO Name:", ngoName);
-console.log("Initial Donations:", donationCount);
-
-// update variable dynamically
-donationCount += 10;
-console.log("Updated Donations:", donationCount);
-
-// try reassign const (will give error)
-try {
-    ngoName = "New NGO"; // ❌ not allowed
-} catch (e) {
-    console.log("Error: Cannot reassign const");
-}
-
-// display on webpage
-const displayBox = document.createElement("div");
-displayBox.innerHTML = `<h3>${ngoName}</h3><p>Total Donations: ${donationCount}</p>`;
-displayBox.style.padding = "10px";
-document.body.appendChild(displayBox);
-
-
-/* =========================
-   2. FUNCTIONS
-========================= */
-
-// function declaration
-function showWelcome() {
-    alert("Welcome to NGO Portal!");
-}
-
-// function expression
-const updateDonation = function(amount) {
-    donationCount += amount;
-    return donationCount;
-};
-
-// arrow function
-const multiplyDonation = (a, b) => a * b;
-
-// function with parameters + return
-function calculateTotal(a, b) {
-    return a + b;
-}
-
-// call functions
-console.log("Total:", calculateTotal(10, 20));
-console.log("Multiply:", multiplyDonation(5, 2));
-
-// reuse function
-updateDonation(50);
-updateDonation(20);
-
-
-/* =========================
-   3. OBJECTS
-========================= */
-
-let ngo = {
-    name: "MM NGO",
-    location: "India",
-    services: "Food & Education"
-};
-
-// dot notation
-console.log(ngo.name);
-
-// bracket notation
-console.log(ngo["location"]);
-
-// update property
-ngo.services = "Food, Education, Medical";
-
-// display on webpage
-const objBox = document.createElement("div");
-objBox.innerHTML = `<p>Services: ${ngo.services}</p>`;
-document.body.appendChild(objBox);
-
-// log object
-console.log("NGO Object:", ngo);
-
-
-/* =========================
-   4. METHODS
-========================= */
-
-let donor = {
-    name: "Guest",
-    amount: 0,
-
-    donate: function(value) {
-        this.amount += value;
-        return this.amount;
+    function popup() {
+        alert("Welcome! Please sign in...");
     }
-};
 
-// method call
-console.log(donor.donate(500));
+    /* =========================
+       1. VARIABLES
+    ========================= */
 
-// update UI using method
-function donateNow() {
-    let total = donor.donate(100);
-    alert("Donation Successful! Total: " + total);
-}
+    const ngoName = "Manavaseva Madhavaseva Organisation";
+    let donationCount = 100;
 
+    console.log("NGO Name:", ngoName);
+    console.log("Initial Donations:", donationCount);
 
-/* =========================
-   5. POP-UP BOXES
-========================= */
+    donationCount += 10;
+    console.log("Updated Donations:", donationCount);
 
-// alert
-alert("Welcome to NGO Website!");
+    try {
+        ngoName = "New NGO";
+    } catch (e) {
+        console.log("Error: Cannot reassign const");
+    }
 
-// confirm
-let confirmDonate = confirm("Do you want to donate?");
-console.log("Confirm Result:", confirmDonate);
+    const displayBox = document.createElement("div");
+    displayBox.innerHTML = `<h3>${ngoName}</h3><p>Total Donations: ${donationCount}</p>`;
+    displayBox.style.padding = "10px";
+    displayBox.style.margin = "10px auto";
+    displayBox.style.maxWidth = "1200px";
+    displayBox.style.backgroundColor = "#eff6ff";
+    displayBox.style.border = "1px solid #bfdbfe";
+    displayBox.style.borderRadius = "8px";
+    document.body.insertBefore(displayBox, document.body.firstChild);
 
-// prompt
-let userName = prompt("Enter your name:");
-console.log("User Name:", userName);
+    /* =========================
+       2. FUNCTIONS
+    ========================= */
 
-// display response
-const userBox = document.createElement("p");
-userBox.innerText = "Hello " + userName;
-document.body.appendChild(userBox);
+    function showWelcome() {
+        alert("Welcome to NGO Portal!");
+    }
 
+    const updateDonation = function (amount) {
+        donationCount += amount;
+        return donationCount;
+    };
 
-/* =========================
-   6. EVENTS & EVENT LISTENERS
-========================= */
+    const multiplyDonation = (a, b) => a * b;
 
-// select elements
-const donateBtn = document.querySelector(".btn");
-const searchInput = document.getElementById("search");
-const header = document.querySelector("header");
+    function calculateTotal(a, b) {
+        return a + b;
+    }
 
-// CLICK EVENT (content change)
-if (donateBtn) {
-    donateBtn.addEventListener("click", function() {
-        alert("Thank you for clicking Donate!");
-    });
-}
+    console.log("Total:", calculateTotal(10, 20));
+    console.log("Multiply:", multiplyDonation(5, 2));
 
-// INPUT EVENT (live update)
-if (searchInput) {
-    searchInput.addEventListener("input", function() {
-        console.log("Searching:", searchInput.value);
-    });
-}
+    updateDonation(50);
+    updateDonation(20);
 
-// MOUSEOVER EVENT (style change)
-if (header) {
-    header.addEventListener("mouseover", function() {
-        header.style.backgroundColor = "#e0f7ff";
-    });
+    /* =========================
+       3. OBJECTS
+    ========================= */
 
-    header.addEventListener("mouseout", function() {
-        header.style.backgroundColor = "white";
-    });
-}
+    let ngo = {
+        name: "MM NGO",
+        location: "India",
+        services: "Food & Education"
+    };
+
+    console.log(ngo.name);
+    console.log(ngo["location"]);
+
+    ngo.services = "Food, Education, Medical";
+
+    const objBox = document.createElement("div");
+    objBox.innerHTML = `<p>Services: ${ngo.services}</p>`;
+    objBox.style.padding = "10px";
+    objBox.style.margin = "10px auto";
+    objBox.style.maxWidth = "1200px";
+    objBox.style.backgroundColor = "#f9fafb";
+    objBox.style.border = "1px solid #e5e7eb";
+    objBox.style.borderRadius = "8px";
+    document.body.insertBefore(objBox, displayBox.nextSibling);
+
+    console.log("NGO Object:", ngo);
+
+    /* =========================
+       4. METHODS
+    ========================= */
+
+    let donor = {
+        name: "Guest",
+        amount: 0,
+
+        donate: function (value) {
+            this.amount += value;
+            return this.amount;
+        }
+    };
+
+    console.log(donor.donate(500));
+
+    function donateNow() {
+        let total = donor.donate(100);
+        alert("Donation Successful! Total: " + total);
+    }
+
+    /* =========================
+       5. POP-UP BOXES
+    ========================= */
+
+    popup();
+
+    let confirmDonate = confirm("Do you want to donate?");
+    console.log("Confirm Result:", confirmDonate);
+
+    let userName = prompt("Enter your name:");
+    console.log("User Name:", userName);
+
+    const userBox = document.createElement("p");
+    userBox.innerText = "Hello " + (userName || "Guest");
+    userBox.style.padding = "10px";
+    userBox.style.margin = "10px auto";
+    userBox.style.maxWidth = "1200px";
+    userBox.style.backgroundColor = "#ecfccb";
+    userBox.style.border = "1px solid #84cc16";
+    userBox.style.borderRadius = "8px";
+    document.body.insertBefore(userBox, objBox.nextSibling);
+
+    /* =========================
+       6. EVENTS & EVENT LISTENERS
+    ========================= */
+
+    const donateBtn = document.querySelector(".btn-primary");
+    const searchInput = document.getElementById("search");
+    const header = document.querySelector("header");
+
+    if (donateBtn) {
+        donateBtn.addEventListener("click", function () {
+            alert("Thank you for clicking Donate!");
+            donateNow();
+        });
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            console.log("Searching:", searchInput.value);
+        });
+    }
+
+    if (header) {
+        header.addEventListener("mouseover", function () {
+            header.style.backgroundColor = "#e0f7ff";
+        });
+
+        header.addEventListener("mouseout", function () {
+            header.style.backgroundColor = "";
+        });
+    }
+
+    window.showWelcome = showWelcome;
+    window.donateNow = donateNow;
+    window.popup = popup;
+});

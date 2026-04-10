@@ -71,7 +71,7 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .box, .iframe-section {
             background: #ffffff;
             border-radius: 8px;
@@ -106,7 +106,7 @@
             font-size: 20px;
             font-weight: 600;
         }
-        
+
         iframe {
             border-radius: 6px;
             width: 100%;
@@ -114,11 +114,11 @@
             border: 1px solid #e5e7eb;
             background: #f9fafb;
         }
-        
+
         .input-group {
             margin-bottom: 15px;
         }
-        
+
         input {
             width: 100%;
             padding: 14px 15px;
@@ -130,20 +130,20 @@
             font-size: 15px;
             color: #111827;
         }
-        
+
         input:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
             border-color: #2563eb;
             background: #ffffff;
         }
-        
+
         .btn-group {
             display: flex;
             gap: 15px;
             margin-top: 25px;
         }
-        
+
         button.t, input[type="reset"] {
             flex: 1;
             padding: 14px;
@@ -155,28 +155,49 @@
             transition: 0.2s;
             text-align: center;
         }
-        
+
         button.t {
-            background: #10b981; /* Green for donate */
+            background: #10b981;
             color: #fff;
             box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
         }
-        
+
         button.t:hover {
             background: #059669;
             transform: translateY(-1px);
         }
-        
+
         input[type="reset"] {
             background: #ffffff;
             border: 1px solid #d1d5db;
             color: #374151;
         }
-        
+
         input[type="reset"]:hover {
             background: #f3f4f6;
         }
-        
+
+        .donation-toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #111827;
+            color: #ffffff;
+            padding: 14px 18px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .donation-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media(max-width: 1000px) {
             .container {
                 margin-top: 30px;
@@ -197,36 +218,36 @@
 <div class="container">
     <div class="box">
         <h2 class="section-title">Donation Details</h2>
-        
-        <form action="donation_process.php" method="POST">
+
+        <form action="donation_process.php" method="POST" onsubmit="return handleDonationSubmit(this);">
             <div class="input-group">
                 <input type="text" name="donor_name" placeholder="Full Name" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="email" name="email" placeholder="Email Address" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="number" name="phone" placeholder="Phone Number" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="text" name="reason" placeholder="Purpose (e.g. Education, Health, Food)" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="number" name="amount" placeholder="Donation Amount ($)" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="text" name="payment_mode" placeholder="Payment Method (Card / UPI)" required>
             </div>
-            
+
             <div class="input-group">
                 <input type="text" name="comments" placeholder="Comments or Suggestions">
             </div>
-            
+
             <div class="btn-group">
                 <button type="submit" class="t">Proceed securely</button>
                 <input type="reset" value="Clear Form">
@@ -236,12 +257,12 @@
 
     <div class="iframe-section">
         <h2 class="section-title">See Your Impact</h2>
-        
+
         <div>
             <h3>Our Mission in Action</h3>
             <iframe src="https://www.youtube.com/embed/z4rO8iNq2bM?si=GzKkX1_N6tSjC42X" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        
+
         <div style="margin-top:10px;">
             <h3>Service Locations</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15225.961011508216!2d78.43577732297138!3d17.43621424419998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90b9b3fd5f17%3A0xc3f345593c66f57c!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500038!5e0!3m2!1sen!2sin!4v1689243763261!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -249,5 +270,8 @@
     </div>
 </div>
 
+<div id="donation-toast" class="donation-toast">Thank you for donating.</div>
+
+<script src="donation.js?v=3"></script>
 </body>
 </html>

@@ -102,6 +102,10 @@ a {
 .nav-links a:hover {
     color: #2563eb; /* Royal Blue */
 }
+.nav-links a.active {
+    color: #2563eb;
+    font-weight: 700;
+}
 
 .nav-actions {
     display: flex;
@@ -178,6 +182,11 @@ a {
 
 .theme-btn {
     display: none; 
+}
+
+/* NAVBAR SCROLLED */
+.navbar.scrolled {
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.12);
 }
 
 /* HERO SECTION */
@@ -289,6 +298,33 @@ a {
     border-radius: 8px;
 }
 
+/* PROGRAMS SECTION */
+.programs-section {
+    padding: 90px 0;
+    background: #f9fafb;
+}
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+.program-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+}
+.program-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #111827;
+}
+.program-card p {
+    color: #4b5563;
+    font-size: 15px;
+}
+
 /* IMPACT / IFRAMES SECTION */
 .impact-section {
     background: #f3f4f6;
@@ -335,6 +371,57 @@ a {
 
 .more-info {
     text-align: center;
+}
+
+/* CTA SECTION */
+.cta-section {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #0f172a 100%);
+    color: #ffffff;
+}
+.cta-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.cta-text h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.cta-text p {
+    font-size: 16px;
+    color: #e5e7eb;
+}
+.cta-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+    padding: 90px 0;
+    background: #ffffff;
+}
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+.contact-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 24px;
+    background: #f9fafb;
+}
+.contact-card h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #111827;
+}
+.contact-card p {
+    color: #4b5563;
+    margin-bottom: 6px;
 }
 
 /* FOOTER */
@@ -388,6 +475,9 @@ a {
     .about-content {
         flex-direction: column;
     }
+    .program-grid {
+        grid-template-columns: 1fr;
+    }
     .hero-content {
         text-align: center;
     }
@@ -415,6 +505,13 @@ a {
     }
     .hero-buttons {
         flex-direction: column;
+    }
+    .cta-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
     .footer-container {
         flex-direction: column;

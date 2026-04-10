@@ -1,30 +1,18 @@
-let u = "Even one rupee can save a life ....Please Donate "
-function pop(){
-alert(u);
-}
+function handleDonationSubmit(form) {
+    const proceed = confirm("Do you want to proceed with this donation?");
 
-function signup(){
-    let result = confirm("Do u want to Re-Sign up ?");
-    if (result) {
-        window.open("signup.html", "_blank");
+    if (!proceed) {
+        return false;
     }
-    else{
-        //window.open("lab2.html", "_parent");
+
+    const toast = document.getElementById("donation-toast");
+    if (toast) {
+        toast.classList.add("show");
     }
+
+    setTimeout(function () {
+        form.submit();
+    }, 1200);
+
+    return false;
 }
-
-
-
-function confirmDonate() {
-    let result = confirm("Do you want to proceed to donation?");
-    if (result) {
-        window.open("lab2.html", "_self");
-    }
-}
-
-function loginpage() {
-   alert("Successfully Logined in  >>>.Continue ")
-}
-
-
-
